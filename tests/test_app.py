@@ -251,10 +251,14 @@ def submit(at, text):
     return at
 
 
-def test_scope_warning_and_test_double_banner_are_visible(at):
+def test_usage_instructions_and_test_double_banner_are_visible(at):
     text = all_text(at)
     assert "inglés" in text
-    assert "operaciones bancarias" in text
+    assert "Escribe la consulta" in at.info[0].value
+    assert "Clasificar" in at.info[0].value
+    assert "Revisa la intención" in at.info[0].value
+    assert "Confirma la ruta" in at.info[0].value
+    assert "Prototipo académico" not in text
     assert "DOBLE DE PRUEBA" in text
 
 

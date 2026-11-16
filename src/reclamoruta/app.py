@@ -37,11 +37,10 @@ from reclamoruta.contracts import (
 )
 from reclamoruta.value import validate_decision
 
-SCOPE_WARNING = (
-    "Prototipo académico. Clasifica consultas bancarias **solo en inglés** y sugiere una ruta "
-    "de atención diseñada por el grupo. **No ejecuta operaciones bancarias**, no detecta fraude "
-    "ni da asesoría financiera. No escriba datos personales, números de cuenta o de tarjeta. "
-    "Una persona revisa y confirma cada sugerencia."
+USAGE_INSTRUCTIONS = (
+    "**1.** Escribe la consulta en inglés y pulsa **Clasificar**.\n\n"
+    "**2.** Revisa la intención, la ruta y la puntuación sugeridas.\n\n"
+    "**3.** Confirma la ruta o cambia la intención y pulsa **Confirmar ruta**."
 )
 
 Loader = Callable[[Path, str], PredictorLike]
@@ -184,7 +183,7 @@ def render(runtime: Runtime, *, max_per_minute: int = DEFAULT_MAX_PER_MINUTE,
     import streamlit as st
 
     st.title("ReclamoRuta")
-    st.info(SCOPE_WARNING)
+    st.info(USAGE_INSTRUCTIONS)
     if runtime.test_double:
         st.warning("DOBLE DE PRUEBA: predictor falso para pruebas automáticas. No es la demo.")
     st.caption(

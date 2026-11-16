@@ -11,7 +11,7 @@ Un agente pega la consulta del cliente, en inglés. El sistema valida que tenga 
 - **Revisión humana siempre disponible.** Incluso con una puntuación alta, se puede cambiar la intención. El umbral solo decide cuándo la revisión es **obligatoria**.
 - **Puntuación honesta.** La interfaz dice "probabilidad calibrada (estimada en validación)", nunca "certeza", y advierte que una puntuación alta no garantiza acierto.
 - **Sin respuestas inventadas.** Si faltan los pesos o el modelo falla, la app muestra un error y se detiene; no ofrece rutas por defecto.
-- **Aviso de alcance permanente.** Solo inglés, no ejecuta operaciones, no detecta fraude ni da asesoría financiera, y pide no escribir datos personales.
+- **Instrucciones visibles.** El recuadro inicial explica cómo escribir la consulta en inglés, clasificarla, revisar la intención, ruta y puntuación, y confirmar o corregir la intención.
 - **Hallazgo del piloto:** cuando la sugerencia aparece preseleccionada, las personas tienden a aceptarla aunque se exija revisión. Ver `ESTUDIO_HUMANO_piloto.md`, hallazgo 3.
 
 ## Privacidad y seguridad
