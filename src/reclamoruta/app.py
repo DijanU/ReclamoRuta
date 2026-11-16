@@ -13,6 +13,9 @@ Environment variables (paths relative to the working directory):
 - ``RECLAMORUTA_DEVICE`` (default ``cpu``).
 - ``RECLAMORUTA_CALIBRATION`` (default ``configs/calibration.json``): only read
   when the decision declares a fitted calibration.
+- ``RECLAMORUTA_MAX_PER_MINUTE`` (default 20): classifications allowed per
+  browser session in any 60-second window. A per-session guard only; network
+  rate limiting and HTTPS belong to the hosting platform or a reverse proxy.
 
 The app never stores message text, never retrains on corrections and never
 invents a fallback answer when the model is missing or fails.
@@ -25,10 +28,12 @@ from dataclasses import dataclass
 import json
 import os
 from pathlib import Path
+import time
 
 from reclamoruta.contracts import (
     BoundDecision, ContractError, MAX_MESSAGE_CHARS, PredictorLike, RouteMap,
     artifact_digest, bind_decision, confirm, load_calibration, load_routes, route_message,
+    validate_message,
 )
 from reclamoruta.value import validate_decision
 
@@ -149,7 +154,32 @@ def _score_label(calibrated: bool) -> str:
     return "Puntuación del modelo (sin calibrar; no es probabilidad de acierto)"
 
 
-def render(runtime: Runtime) -> None:
+DEFAULT_MAX_PER_MINUTE = 20
+
+
+def _max_per_minute() -> int:
+    raw = os.environ.get("RECLAMORUTA_MAX_PER_MINUTE", str(DEFAULT_MAX_PER_MINUTE)).strip()
+    try:
+        value = int(raw)
+    except ValueError as exc:
+        raise AppConfigError("RECLAMORUTA_MAX_PER_MINUTE debe ser un entero positivo") from exc
+    if value < 1:
+        raise AppConfigError("RECLAMORUTA_MAX_PER_MINUTE debe ser un entero positivo")
+    return value
+
+
+def _within_quota(state, max_per_minute: int, now: float) -> bool:
+    """Sliding 60 s window per browser session; records the request when allowed."""
+    recent = [t for t in state.get("request_times", []) if now - t < 60]
+    allowed = len(recent) < max_per_minute
+    if allowed:
+        recent.append(now)
+    state["request_times"] = recent
+    return allowed
+
+
+def render(runtime: Runtime, *, max_per_minute: int = DEFAULT_MAX_PER_MINUTE,
+           clock: Callable[[], float] = time.monotonic) -> None:
     """Draw the UI for an already loaded runtime."""
     import streamlit as st
 
@@ -173,9 +203,16 @@ def render(runtime: Runtime) -> None:
         st.session_state.pop("result", None)
         st.session_state.pop("confirmation", None)
         try:
-            st.session_state["result"] = route_message(
-                text, runtime.predictor, runtime.decision, runtime.routes,
-            )
+            validate_message(text)
+            if not _within_quota(st.session_state, max_per_minute, clock()):
+                st.warning(
+                    f"Límite de uso: máximo {max_per_minute} clasificaciones por minuto en esta sesión. "
+                    "Espere unos segundos e intente de nuevo."
+                )
+            else:
+                st.session_state["result"] = route_message(
+                    text, runtime.predictor, runtime.decision, runtime.routes,
+                )
         except ContractError as exc:
             st.warning(str(exc))
         except Exception:  # noqa: BLE001 - never show a made-up answer
@@ -257,12 +294,13 @@ def main() -> None:
 
     try:
         runtime = cached(_settings())
+        limit = _max_per_minute()
     except AppConfigError as exc:
         st.title("ReclamoRuta")
         st.error(f"La aplicación no puede iniciar: {exc}")
         st.stop()
         return
-    render(runtime)
+    render(runtime, max_per_minute=limit)
 
 
 if __name__ == "__main__":
