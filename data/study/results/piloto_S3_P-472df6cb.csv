@@ -1,0 +1,11 @@
+participant_id,message_id,condition,elapsed_s,suggested_intent,suggested_route,final_intent,final_route,corrected,needs_review,model_version
+P-472df6cb,train.csv:5232,manual,51.22351762501057,,,balance_not_updated_after_bank_transfer,pagos_transferencias,False,,
+P-472df6cb,train.csv:1082,manual,8.835216000006767,,,card_delivery_estimate,tarjetas,False,,
+P-472df6cb,train.csv:9149,manual,50.90584024999407,,,verify_top_up,recargas,False,,
+P-472df6cb,train.csv:4596,manual,8.696918750007171,,,atm_support,informacion_general,False,,
+P-472df6cb,train.csv:4050,manual,24.339853375015082,,,pin_blocked,tarjetas,False,,
+P-472df6cb,train.csv:7996,asistida,4.7232623340096325,topping_up_by_card,recargas,topping_up_by_card,recargas,False,True,distilbert-v2
+P-472df6cb,train.csv:3722,asistida,8.756882834015414,edit_personal_details,cuenta_identidad,edit_personal_details,cuenta_identidad,False,True,distilbert-v2
+P-472df6cb,train.csv:3958,asistida,5.334290208003949,unable_to_verify_identity,cuenta_identidad,unable_to_verify_identity,cuenta_identidad,False,False,distilbert-v2
+P-472df6cb,train.csv:9860,asistida,3.152606832998572,verify_my_identity,cuenta_identidad,verify_my_identity,cuenta_identidad,False,False,distilbert-v2
+P-472df6cb,train.csv:717,asistida,9.260413125011837,extra_charge_on_statement,cobros_reembolsos,extra_charge_on_statement,cobros_reembolsos,False,False,distilbert-v2

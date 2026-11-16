@@ -1,0 +1,11 @@
+participant_id,message_id,condition,elapsed_s,suggested_intent,suggested_route,final_intent,final_route,corrected,needs_review,model_version
+P-acc73004,train.csv:6079,manual,38.38934037502622,,,transfer_timing,pagos_transferencias,False,,
+P-acc73004,train.csv:7348,manual,124.52964579101535,,,receiving_money,pagos_transferencias,False,,
+P-acc73004,train.csv:1180,manual,52.262101333006285,,,automatic_top_up,recargas,False,,
+P-acc73004,train.csv:2610,manual,20.544065000023693,,,card_payment_fee_charged,cobros_reembolsos,False,,
+P-acc73004,train.csv:202,manual,9.636838125006761,,,activate_my_card,tarjetas,False,,
+P-acc73004,train.csv:1527,asistida,9.000244374998147,lost_or_stolen_card,seguridad,lost_or_stolen_card,seguridad,False,False,distilbert-v2
+P-acc73004,train.csv:5832,asistida,13.574914208002156,Refund_not_showing_up,cobros_reembolsos,Refund_not_showing_up,cobros_reembolsos,False,False,distilbert-v2
+P-acc73004,train.csv:5890,asistida,12.212292999989586,declined_card_payment,pagos_transferencias,declined_card_payment,pagos_transferencias,False,True,distilbert-v2
+P-acc73004,train.csv:6199,asistida,5.279835499997716,terminate_account,cuenta_identidad,terminate_account,cuenta_identidad,False,False,distilbert-v2
+P-acc73004,train.csv:829,asistida,5.879364832973806,pending_cash_withdrawal,pagos_transferencias,pending_cash_withdrawal,pagos_transferencias,False,False,distilbert-v2

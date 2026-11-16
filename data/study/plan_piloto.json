@@ -1,0 +1,181 @@
+{
+  "phase": "piloto",
+  "seed": 71,
+  "source_file": "validation_model.csv",
+  "source_sha256": "048b2db2a9c65b074372e1215198031fdaa33a09a6e4259736c134125013ad7f",
+  "n_messages": 30,
+  "per_participant": 10,
+  "participants": [
+    {
+      "slot": "S1",
+      "first_condition": "manual",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "train.csv:6079",
+          "condition": "manual"
+        },
+        {
+          "position": 2,
+          "message_id": "train.csv:7348",
+          "condition": "manual"
+        },
+        {
+          "position": 3,
+          "message_id": "train.csv:1180",
+          "condition": "manual"
+        },
+        {
+          "position": 4,
+          "message_id": "train.csv:2610",
+          "condition": "manual"
+        },
+        {
+          "position": 5,
+          "message_id": "train.csv:202",
+          "condition": "manual"
+        },
+        {
+          "position": 6,
+          "message_id": "train.csv:1527",
+          "condition": "asistida"
+        },
+        {
+          "position": 7,
+          "message_id": "train.csv:5832",
+          "condition": "asistida"
+        },
+        {
+          "position": 8,
+          "message_id": "train.csv:5890",
+          "condition": "asistida"
+        },
+        {
+          "position": 9,
+          "message_id": "train.csv:6199",
+          "condition": "asistida"
+        },
+        {
+          "position": 10,
+          "message_id": "train.csv:829",
+          "condition": "asistida"
+        }
+      ]
+    },
+    {
+      "slot": "S2",
+      "first_condition": "asistida",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "train.csv:2243",
+          "condition": "asistida"
+        },
+        {
+          "position": 2,
+          "message_id": "train.csv:3591",
+          "condition": "asistida"
+        },
+        {
+          "position": 3,
+          "message_id": "train.csv:4389",
+          "condition": "asistida"
+        },
+        {
+          "position": 4,
+          "message_id": "train.csv:3297",
+          "condition": "asistida"
+        },
+        {
+          "position": 5,
+          "message_id": "train.csv:8920",
+          "condition": "asistida"
+        },
+        {
+          "position": 6,
+          "message_id": "train.csv:7851",
+          "condition": "manual"
+        },
+        {
+          "position": 7,
+          "message_id": "train.csv:6342",
+          "condition": "manual"
+        },
+        {
+          "position": 8,
+          "message_id": "train.csv:2717",
+          "condition": "manual"
+        },
+        {
+          "position": 9,
+          "message_id": "train.csv:1464",
+          "condition": "manual"
+        },
+        {
+          "position": 10,
+          "message_id": "train.csv:8598",
+          "condition": "manual"
+        }
+      ]
+    },
+    {
+      "slot": "S3",
+      "first_condition": "manual",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "train.csv:5232",
+          "condition": "manual"
+        },
+        {
+          "position": 2,
+          "message_id": "train.csv:1082",
+          "condition": "manual"
+        },
+        {
+          "position": 3,
+          "message_id": "train.csv:9149",
+          "condition": "manual"
+        },
+        {
+          "position": 4,
+          "message_id": "train.csv:4596",
+          "condition": "manual"
+        },
+        {
+          "position": 5,
+          "message_id": "train.csv:4050",
+          "condition": "manual"
+        },
+        {
+          "position": 6,
+          "message_id": "train.csv:7996",
+          "condition": "asistida"
+        },
+        {
+          "position": 7,
+          "message_id": "train.csv:3722",
+          "condition": "asistida"
+        },
+        {
+          "position": 8,
+          "message_id": "train.csv:3958",
+          "condition": "asistida"
+        },
+        {
+          "position": 9,
+          "message_id": "train.csv:9860",
+          "condition": "asistida"
+        },
+        {
+          "position": 10,
+          "message_id": "train.csv:717",
+          "condition": "asistida"
+        }
+      ]
+    }
+  ],
+  "generator": "reclamoruta.study_plan",
+  "notes": "Solo IDs de mensaje: sin textos ni etiquetas. No usar el feedback para reentrenar ni mover umbrales.",
+  "decision_sha256": "2f254e9fdb76b1eb9ec0915589914512a130c020ac943348358208d334bf8af5"
+}

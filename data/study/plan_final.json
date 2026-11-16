@@ -1,0 +1,631 @@
+{
+  "phase": "final",
+  "seed": 73,
+  "source_file": "test_unique.csv",
+  "source_sha256": "12a685f4e15d86719a7caa3e1502808134997b0101a7db674faac61d821b0d06",
+  "n_messages": 120,
+  "per_participant": 40,
+  "participants": [
+    {
+      "slot": "S1",
+      "first_condition": "manual",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "test.csv:2123",
+          "condition": "manual"
+        },
+        {
+          "position": 2,
+          "message_id": "test.csv:455",
+          "condition": "manual"
+        },
+        {
+          "position": 3,
+          "message_id": "test.csv:365",
+          "condition": "manual"
+        },
+        {
+          "position": 4,
+          "message_id": "test.csv:1716",
+          "condition": "manual"
+        },
+        {
+          "position": 5,
+          "message_id": "test.csv:319",
+          "condition": "manual"
+        },
+        {
+          "position": 6,
+          "message_id": "test.csv:2683",
+          "condition": "manual"
+        },
+        {
+          "position": 7,
+          "message_id": "test.csv:586",
+          "condition": "manual"
+        },
+        {
+          "position": 8,
+          "message_id": "test.csv:1364",
+          "condition": "manual"
+        },
+        {
+          "position": 9,
+          "message_id": "test.csv:255",
+          "condition": "manual"
+        },
+        {
+          "position": 10,
+          "message_id": "test.csv:180",
+          "condition": "manual"
+        },
+        {
+          "position": 11,
+          "message_id": "test.csv:1503",
+          "condition": "asistida"
+        },
+        {
+          "position": 12,
+          "message_id": "test.csv:2727",
+          "condition": "asistida"
+        },
+        {
+          "position": 13,
+          "message_id": "test.csv:2270",
+          "condition": "asistida"
+        },
+        {
+          "position": 14,
+          "message_id": "test.csv:1749",
+          "condition": "asistida"
+        },
+        {
+          "position": 15,
+          "message_id": "test.csv:84",
+          "condition": "asistida"
+        },
+        {
+          "position": 16,
+          "message_id": "test.csv:2826",
+          "condition": "asistida"
+        },
+        {
+          "position": 17,
+          "message_id": "test.csv:800",
+          "condition": "asistida"
+        },
+        {
+          "position": 18,
+          "message_id": "test.csv:2301",
+          "condition": "asistida"
+        },
+        {
+          "position": 19,
+          "message_id": "test.csv:403",
+          "condition": "asistida"
+        },
+        {
+          "position": 20,
+          "message_id": "test.csv:2591",
+          "condition": "asistida"
+        },
+        {
+          "position": 21,
+          "message_id": "test.csv:140",
+          "condition": "asistida"
+        },
+        {
+          "position": 22,
+          "message_id": "test.csv:2769",
+          "condition": "asistida"
+        },
+        {
+          "position": 23,
+          "message_id": "test.csv:1109",
+          "condition": "asistida"
+        },
+        {
+          "position": 24,
+          "message_id": "test.csv:1526",
+          "condition": "asistida"
+        },
+        {
+          "position": 25,
+          "message_id": "test.csv:502",
+          "condition": "asistida"
+        },
+        {
+          "position": 26,
+          "message_id": "test.csv:2604",
+          "condition": "asistida"
+        },
+        {
+          "position": 27,
+          "message_id": "test.csv:1198",
+          "condition": "asistida"
+        },
+        {
+          "position": 28,
+          "message_id": "test.csv:2060",
+          "condition": "asistida"
+        },
+        {
+          "position": 29,
+          "message_id": "test.csv:2919",
+          "condition": "asistida"
+        },
+        {
+          "position": 30,
+          "message_id": "test.csv:1773",
+          "condition": "asistida"
+        },
+        {
+          "position": 31,
+          "message_id": "test.csv:1226",
+          "condition": "manual"
+        },
+        {
+          "position": 32,
+          "message_id": "test.csv:1068",
+          "condition": "manual"
+        },
+        {
+          "position": 33,
+          "message_id": "test.csv:920",
+          "condition": "manual"
+        },
+        {
+          "position": 34,
+          "message_id": "test.csv:1741",
+          "condition": "manual"
+        },
+        {
+          "position": 35,
+          "message_id": "test.csv:680",
+          "condition": "manual"
+        },
+        {
+          "position": 36,
+          "message_id": "test.csv:2056",
+          "condition": "manual"
+        },
+        {
+          "position": 37,
+          "message_id": "test.csv:2668",
+          "condition": "manual"
+        },
+        {
+          "position": 38,
+          "message_id": "test.csv:2944",
+          "condition": "manual"
+        },
+        {
+          "position": 39,
+          "message_id": "test.csv:1270",
+          "condition": "manual"
+        },
+        {
+          "position": 40,
+          "message_id": "test.csv:2490",
+          "condition": "manual"
+        }
+      ]
+    },
+    {
+      "slot": "S2",
+      "first_condition": "asistida",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "test.csv:1770",
+          "condition": "asistida"
+        },
+        {
+          "position": 2,
+          "message_id": "test.csv:897",
+          "condition": "asistida"
+        },
+        {
+          "position": 3,
+          "message_id": "test.csv:77",
+          "condition": "asistida"
+        },
+        {
+          "position": 4,
+          "message_id": "test.csv:2337",
+          "condition": "asistida"
+        },
+        {
+          "position": 5,
+          "message_id": "test.csv:2545",
+          "condition": "asistida"
+        },
+        {
+          "position": 6,
+          "message_id": "test.csv:1932",
+          "condition": "asistida"
+        },
+        {
+          "position": 7,
+          "message_id": "test.csv:555",
+          "condition": "asistida"
+        },
+        {
+          "position": 8,
+          "message_id": "test.csv:2184",
+          "condition": "asistida"
+        },
+        {
+          "position": 9,
+          "message_id": "test.csv:760",
+          "condition": "asistida"
+        },
+        {
+          "position": 10,
+          "message_id": "test.csv:2889",
+          "condition": "asistida"
+        },
+        {
+          "position": 11,
+          "message_id": "test.csv:2374",
+          "condition": "manual"
+        },
+        {
+          "position": 12,
+          "message_id": "test.csv:1127",
+          "condition": "manual"
+        },
+        {
+          "position": 13,
+          "message_id": "test.csv:2166",
+          "condition": "manual"
+        },
+        {
+          "position": 14,
+          "message_id": "test.csv:2333",
+          "condition": "manual"
+        },
+        {
+          "position": 15,
+          "message_id": "test.csv:2360",
+          "condition": "manual"
+        },
+        {
+          "position": 16,
+          "message_id": "test.csv:207",
+          "condition": "manual"
+        },
+        {
+          "position": 17,
+          "message_id": "test.csv:1903",
+          "condition": "manual"
+        },
+        {
+          "position": 18,
+          "message_id": "test.csv:774",
+          "condition": "manual"
+        },
+        {
+          "position": 19,
+          "message_id": "test.csv:209",
+          "condition": "manual"
+        },
+        {
+          "position": 20,
+          "message_id": "test.csv:78",
+          "condition": "manual"
+        },
+        {
+          "position": 21,
+          "message_id": "test.csv:2973",
+          "condition": "manual"
+        },
+        {
+          "position": 22,
+          "message_id": "test.csv:2200",
+          "condition": "manual"
+        },
+        {
+          "position": 23,
+          "message_id": "test.csv:1572",
+          "condition": "manual"
+        },
+        {
+          "position": 24,
+          "message_id": "test.csv:1446",
+          "condition": "manual"
+        },
+        {
+          "position": 25,
+          "message_id": "test.csv:1540",
+          "condition": "manual"
+        },
+        {
+          "position": 26,
+          "message_id": "test.csv:1101",
+          "condition": "manual"
+        },
+        {
+          "position": 27,
+          "message_id": "test.csv:1339",
+          "condition": "manual"
+        },
+        {
+          "position": 28,
+          "message_id": "test.csv:246",
+          "condition": "manual"
+        },
+        {
+          "position": 29,
+          "message_id": "test.csv:621",
+          "condition": "manual"
+        },
+        {
+          "position": 30,
+          "message_id": "test.csv:1315",
+          "condition": "manual"
+        },
+        {
+          "position": 31,
+          "message_id": "test.csv:2496",
+          "condition": "asistida"
+        },
+        {
+          "position": 32,
+          "message_id": "test.csv:1472",
+          "condition": "asistida"
+        },
+        {
+          "position": 33,
+          "message_id": "test.csv:1908",
+          "condition": "asistida"
+        },
+        {
+          "position": 34,
+          "message_id": "test.csv:1254",
+          "condition": "asistida"
+        },
+        {
+          "position": 35,
+          "message_id": "test.csv:327",
+          "condition": "asistida"
+        },
+        {
+          "position": 36,
+          "message_id": "test.csv:1392",
+          "condition": "asistida"
+        },
+        {
+          "position": 37,
+          "message_id": "test.csv:2001",
+          "condition": "asistida"
+        },
+        {
+          "position": 38,
+          "message_id": "test.csv:987",
+          "condition": "asistida"
+        },
+        {
+          "position": 39,
+          "message_id": "test.csv:879",
+          "condition": "asistida"
+        },
+        {
+          "position": 40,
+          "message_id": "test.csv:122",
+          "condition": "asistida"
+        }
+      ]
+    },
+    {
+      "slot": "S3",
+      "first_condition": "manual",
+      "order": [
+        {
+          "position": 1,
+          "message_id": "test.csv:1939",
+          "condition": "manual"
+        },
+        {
+          "position": 2,
+          "message_id": "test.csv:575",
+          "condition": "manual"
+        },
+        {
+          "position": 3,
+          "message_id": "test.csv:942",
+          "condition": "manual"
+        },
+        {
+          "position": 4,
+          "message_id": "test.csv:2427",
+          "condition": "manual"
+        },
+        {
+          "position": 5,
+          "message_id": "test.csv:545",
+          "condition": "manual"
+        },
+        {
+          "position": 6,
+          "message_id": "test.csv:1502",
+          "condition": "manual"
+        },
+        {
+          "position": 7,
+          "message_id": "test.csv:2431",
+          "condition": "manual"
+        },
+        {
+          "position": 8,
+          "message_id": "test.csv:1804",
+          "condition": "manual"
+        },
+        {
+          "position": 9,
+          "message_id": "test.csv:1661",
+          "condition": "manual"
+        },
+        {
+          "position": 10,
+          "message_id": "test.csv:737",
+          "condition": "manual"
+        },
+        {
+          "position": 11,
+          "message_id": "test.csv:427",
+          "condition": "asistida"
+        },
+        {
+          "position": 12,
+          "message_id": "test.csv:2792",
+          "condition": "asistida"
+        },
+        {
+          "position": 13,
+          "message_id": "test.csv:2716",
+          "condition": "asistida"
+        },
+        {
+          "position": 14,
+          "message_id": "test.csv:286",
+          "condition": "asistida"
+        },
+        {
+          "position": 15,
+          "message_id": "test.csv:1617",
+          "condition": "asistida"
+        },
+        {
+          "position": 16,
+          "message_id": "test.csv:1430",
+          "condition": "asistida"
+        },
+        {
+          "position": 17,
+          "message_id": "test.csv:508",
+          "condition": "asistida"
+        },
+        {
+          "position": 18,
+          "message_id": "test.csv:2464",
+          "condition": "asistida"
+        },
+        {
+          "position": 19,
+          "message_id": "test.csv:1208",
+          "condition": "asistida"
+        },
+        {
+          "position": 20,
+          "message_id": "test.csv:618",
+          "condition": "asistida"
+        },
+        {
+          "position": 21,
+          "message_id": "test.csv:641",
+          "condition": "asistida"
+        },
+        {
+          "position": 22,
+          "message_id": "test.csv:3053",
+          "condition": "asistida"
+        },
+        {
+          "position": 23,
+          "message_id": "test.csv:2458",
+          "condition": "asistida"
+        },
+        {
+          "position": 24,
+          "message_id": "test.csv:1609",
+          "condition": "asistida"
+        },
+        {
+          "position": 25,
+          "message_id": "test.csv:110",
+          "condition": "asistida"
+        },
+        {
+          "position": 26,
+          "message_id": "test.csv:2734",
+          "condition": "asistida"
+        },
+        {
+          "position": 27,
+          "message_id": "test.csv:330",
+          "condition": "asistida"
+        },
+        {
+          "position": 28,
+          "message_id": "test.csv:471",
+          "condition": "asistida"
+        },
+        {
+          "position": 29,
+          "message_id": "test.csv:1851",
+          "condition": "asistida"
+        },
+        {
+          "position": 30,
+          "message_id": "test.csv:2949",
+          "condition": "asistida"
+        },
+        {
+          "position": 31,
+          "message_id": "test.csv:1986",
+          "condition": "manual"
+        },
+        {
+          "position": 32,
+          "message_id": "test.csv:650",
+          "condition": "manual"
+        },
+        {
+          "position": 33,
+          "message_id": "test.csv:1005",
+          "condition": "manual"
+        },
+        {
+          "position": 34,
+          "message_id": "test.csv:1655",
+          "condition": "manual"
+        },
+        {
+          "position": 35,
+          "message_id": "test.csv:2863",
+          "condition": "manual"
+        },
+        {
+          "position": 36,
+          "message_id": "test.csv:1967",
+          "condition": "manual"
+        },
+        {
+          "position": 37,
+          "message_id": "test.csv:869",
+          "condition": "manual"
+        },
+        {
+          "position": 38,
+          "message_id": "test.csv:2099",
+          "condition": "manual"
+        },
+        {
+          "position": 39,
+          "message_id": "test.csv:27",
+          "condition": "manual"
+        },
+        {
+          "position": 40,
+          "message_id": "test.csv:3032",
+          "condition": "manual"
+        }
+      ]
+    }
+  ],
+  "generator": "reclamoruta.study_plan",
+  "notes": "Solo IDs de mensaje: sin textos ni etiquetas. No usar el feedback para reentrenar ni mover umbrales.",
+  "decision_sha256": "2f254e9fdb76b1eb9ec0915589914512a130c020ac943348358208d334bf8af5"
+}

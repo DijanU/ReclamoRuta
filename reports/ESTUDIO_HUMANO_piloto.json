@@ -1,0 +1,42 @@
+{
+  "manual": {
+    "n": 15,
+    "median_s": 38.38934037502622,
+    "mean_s": 41.26166614714312,
+    "human_accuracy": 0.4,
+    "human_route_accuracy": 0.9333333333333333
+  },
+  "asistida": {
+    "n": 15,
+    "median_s": 8.756882834015414,
+    "corrected_total_median_s": null,
+    "correction_rate": 0.0,
+    "human_accuracy": 0.9333333333333333,
+    "human_route_accuracy": 1.0,
+    "wrong_suggestions": 1,
+    "detected_wrong_suggestions": 0,
+    "fixed_wrong_suggestions": 0,
+    "human_introduced_errors": 0,
+    "suggestion_accuracy": 0.9333333333333333
+  },
+  "value_inputs": {
+    "t_manual": 38.38934037502622,
+    "t_aceptar": 7.896700208511902,
+    "t_corregir": null,
+    "t_revision": 8.756882834015414,
+    "q_detectado": 0.0
+  },
+  "correction_time_estimate": {
+    "method": "difference_of_group_medians",
+    "status": "missing_groups",
+    "diagnostic": "Both nonreviewed accepted and corrected groups are required."
+  },
+  "n_participants": 3,
+  "estimated": true,
+  "notes": "Estudio pequeño con participantes no profesionales; tiempos observados, no evidencia de un centro de atención real. q_detectado se basa en 1 sugerencias incorrectas.",
+  "results_files": {
+    "piloto_S1_P-acc73004.csv": "ef1cefb39664f2b0671ac8fe7cae045d68892416d75e482515b953edaf80aeb3",
+    "piloto_S2_P-40118152.csv": "58c136c6de972e8be0efa7b8055a15d399cdb6a201d82b7e1494bfc75b255777",
+    "piloto_S3_P-472df6cb.csv": "801e16e6a62c033302b8d9cf785d643c509ca8b637ed246283d0249dfed0aebe"
+  }
+}

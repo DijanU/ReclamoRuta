@@ -168,6 +168,36 @@ El pickle clásico se guardó con scikit-learn 1.9.1; para reproducir su carga u
 
 `reports/ANALISIS_ECONOMICO.md` compara detección humana del 50 %, 80 % y 100 %, incorpora energía y capital del equipo, y separa el primer lote de los lotes posteriores. `scripts/analyze_economics.py` genera el JSON correspondiente a partir de conteos fijos, benchmarks y parámetros de `configs/compute_costs.json`. Incluye nueve cruces de capital y volumen por modelo y tasa de detección. Los dos reportes contienen sus comandos de reproducción y las fuentes de los parámetros.
 
+## Estudio humano de tiempos
+
+`study_plan.py` genera los planes. Contienen solo IDs de mensaje, sin textos ni etiquetas, y se guardan en `data/study/`:
+
+- Piloto: `validation_model.csv`, semilla 71, 3 puestos × 10 mensajes.
+- Final: `test_unique.csv`, semilla 73, 3 puestos × 40 (20 manuales y 20 asistidos). Cubre las 77 intenciones antes de repetir alguna y equilibra la longitud de los mensajes entre condiciones. El orden de condiciones es ABBA: S1 y S3 empiezan manual, S2 asistida.
+
+El plan final registra el hash de la decisión congelada, y la app se niega a correr con otra.
+
+```powershell
+python -m reclamoruta.study_plan plan --phase piloto --data data/processed/banking77/validation_model.csv --decision reports/evaluation_scenario_v1/distilbert-v2/decision.json --out data/study/plan_piloto.json
+python -m reclamoruta.study_plan plan --phase final --data data/processed/banking77/test_unique.csv --decision reports/evaluation_scenario_v1/distilbert-v2/decision.json --out data/study/plan_final.json
+```
+
+`study_app.py` corre una sesión por participante: empieza con dos mensajes de práctica sintéticos (sin cronómetro ni registro, ajuste derivado del piloto) y luego muestra mensaje por mensaje, cronometra desde que aparece el mensaje hasta la confirmación, y no cronometra las pausas entre bloques. Cada ensayo se agrega al instante a un `.jsonl`, y al final se exporta un `.csv` en `data/study/results/`; ninguno guarda textos ni nombres. Antes de empezar se exige el consentimiento y no se permite reutilizar un puesto que ya tiene resultados en esa fase. Configuración: las mismas variables de la app más `RECLAMORUTA_STUDY_PLAN`, `RECLAMORUTA_STUDY_DATA` (el CSV del plan) y, de forma opcional, `RECLAMORUTA_STUDY_RESULTS`.
+
+```powershell
+$env:RECLAMORUTA_STUDY_PLAN = 'data/study/plan_piloto.json'
+$env:RECLAMORUTA_STUDY_DATA = 'data/processed/banking77/validation_model.csv'
+python -m streamlit run src/reclamoruta/study_app.py
+```
+
+El análisis une los resultados con las etiquetas. Reporta la exactitud humana por condición, las sugerencias erróneas detectadas (`q_detectado`), los errores introducidos por las personas y los tiempos para `value.py`:
+
+```powershell
+python -m reclamoruta.study_plan analyze --results data/study/results/final_*.csv --data data/processed/banking77/test_unique.csv --out reports/ESTUDIO_HUMANO_final.json
+```
+
+Es un estudio pequeño con participantes no profesionales. Los resultados del ensayo final no se usan para reentrenar ni para mover umbrales.
+
 ## Colaboración
 
 Todo se trabaja y se integra sobre `main`. Cada persona usa su propia copia del repositorio, sincroniza antes de empezar y antes de publicar, y coordina cambios en archivos compartidos. No sobrescribir cambios de otro integrante ni forzar un push.

@@ -1,0 +1,11 @@
+participant_id,message_id,condition,elapsed_s,suggested_intent,suggested_route,final_intent,final_route,corrected,needs_review,model_version
+P-40118152,train.csv:2243,asistida,40.07542249999824,top_up_limits,recargas,top_up_limits,recargas,False,False,distilbert-v2
+P-40118152,train.csv:3591,asistida,22.46859304100508,card_payment_not_recognised,seguridad,card_payment_not_recognised,seguridad,False,False,distilbert-v2
+P-40118152,train.csv:4389,asistida,9.703116332995705,disposable_card_limits,tarjetas,disposable_card_limits,tarjetas,False,False,distilbert-v2
+P-40118152,train.csv:3297,asistida,2.7311845000076573,top_up_reverted,recargas,top_up_reverted,recargas,False,False,distilbert-v2
+P-40118152,train.csv:8920,asistida,6.793156042025657,cash_withdrawal_not_recognised,seguridad,cash_withdrawal_not_recognised,seguridad,False,False,distilbert-v2
+P-40118152,train.csv:7851,manual,46.40583066700492,,,get_physical_card,tarjetas,False,,
+P-40118152,train.csv:6342,manual,58.11187950000749,,,request_refund,cobros_reembolsos,False,,
+P-40118152,train.csv:2717,manual,61.808233000017935,,,failed_transfer,pagos_transferencias,False,,
+P-40118152,train.csv:1464,manual,33.672137582994765,,,fiat_currency_support,informacion_general,False,,
+P-40118152,train.csv:8598,manual,29.563574833009625,,,top_up_failed,recargas,False,,
