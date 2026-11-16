@@ -1,0 +1,11 @@
+# Dependencias del despliegue público (CPU, Linux, Python 3.12).
+# Mismas versiones con las que pasa la suite completa (15/11/2026).
+# PyTorch solo-CPU desde su índice oficial: la build CUDA de PyPI pesa varios GB.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+transformers==5.23.0
+tokenizers==0.23.3
+safetensors==0.8.0
+huggingface_hub==2.4.0
+numpy==2.5.4
+streamlit==1.67.0
