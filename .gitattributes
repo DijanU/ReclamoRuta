@@ -10,3 +10,6 @@ configs/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at
 reports/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # SVG generados por Matplotlib: su formato incluye espacios en los trazos.
 reports/*.svg -whitespace
+# Auditoría XAI: conservar bytes de fuentes y resultados vinculados por SHA-256.
+lab10/** -text
+lab10/results/*.svg -whitespace
