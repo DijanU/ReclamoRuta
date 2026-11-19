@@ -198,6 +198,20 @@ python -m reclamoruta.study_plan analyze --results data/study/results/final_*.cs
 
 Es un estudio pequeño con participantes no profesionales. Los resultados del ensayo final no se usan para reentrenar ni para mover umbrales.
 
+## Explicabilidad del modelo final
+
+El laboratorio de Explainable AI está en `lab10/Laboratorio_10_XAI.ipynb`. Utiliza V2 con su calibración y umbral congelados, sin reentrenar: cinco casos de `test_unique` y un agregado de 154 consultas (dos por intención, semilla 42). El método principal elimina una aparición de palabra por vez y mantiene fija la clase original para medir el cambio de puntuación.
+
+Con las dependencias del proyecto, los datos preparados y los pesos descargados con `git lfs pull`:
+
+```powershell
+python -m pip install -r lab10/requirements.txt
+python -m lab10.run --out data/cache/xai-nueva-ejecucion
+python -m lab10.render --results data/cache/xai-nueva-ejecucion/results.json --out data/cache/xai-nueva-ejecucion
+```
+
+La primera ejecución exige un destino nuevo y comprueba integridad de datos, modelo, calibración, decisión y rutas. La segunda regenera las figuras desde el JSON sin cargar el modelo. El notebook contiene investigación, selección del método, parámetros, tablas y figuras; se puede ejecutar por celdas con el kernel del entorno del proyecto. Por defecto usa los resultados reales guardados y permite repetir la inferencia activando `RUN_MODEL`. Las instrucciones están en `lab10/README.md`.
+
 ## Colaboración
 
 Todo se trabaja y se integra sobre `main`. Cada persona usa su propia copia del repositorio, sincroniza antes de empezar y antes de publicar, y coordina cambios en archivos compartidos. No sobrescribir cambios de otro integrante ni forzar un push.
