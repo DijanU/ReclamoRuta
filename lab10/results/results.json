@@ -1,0 +1,2779 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "seed": 42,
+    "model_version": "distilbert-v2",
+    "threshold": 0.85,
+    "temperature": 1.2236539841692393,
+    "global_per_class": 2,
+    "global_n": 154,
+    "source_commit": "00ba1a58631d696480d443d507283b2dbfea2c9b",
+    "hashes": {
+      "artifacts\\distilbert-v2\\config.json": "b1a7676bccd98295c5190816c60439a1601d52dc4444776a8807a3ad75f915d7",
+      "artifacts\\distilbert-v2\\label_to_id.json": "2525b179cd9293d251f347d564baad46acfc91acb99ece1277d8f57da5d7c6a6",
+      "artifacts\\distilbert-v2\\manifest.json": "56b7d3565d69a7f30d51a4b1a822bce50a81c3b3770be6061b0be68242c2c910",
+      "artifacts\\distilbert-v2\\metrics.json": "e78ac7a88ffc8c54e089a3675990e34c7494cf304f9301b01c63397c593f5a4a",
+      "artifacts\\distilbert-v2\\model.safetensors": "417b98d00e57f95ea79c0311e18e50f70d9ce989fb88debe9ad2bf9051384967",
+      "artifacts\\distilbert-v2\\tokenizer.json": "2fc687b11de0bc1b3d8348f92e3b49ef1089a621506c7661fbf3248fcd54947e",
+      "artifacts\\distilbert-v2\\tokenizer_config.json": "71cd48543bec670f50e0c9c3556df16b1f58ea720ead6a1b4675f08870c60b17",
+      "artifacts\\distilbert-v2\\train_config.json": "e999e1e7a3d703b3a97578f1ff82d77fc6b9e7a9851bc3bd27a3493dde2572c9",
+      "reports\\evaluation_scenario_v1\\distilbert-v2\\decision.json": "2f254e9fdb76b1eb9ec0915589914512a130c020ac943348358208d334bf8af5",
+      "reports\\evaluation_scenario_v1\\distilbert-v2\\calibration.json": "f9727ee3a56eb43132b1771425609abecc62a0256fc80da7b5c613198341673e",
+      "configs\\routes.json": "1033658df9db207ff34ff1a137abe57536977cc2d37b42f411c477b26fdbe647",
+      "reports\\evaluation_scenario_v1\\freeze.json": "3d440deadc0b674b326b74ae5d9c56feebde869afe59b25deb63fa87719fcb03",
+      "reports\\BANKING77_MANIFEST.json": "951542b794d51f8283b57ca27e3e7be1047f97cc68c9f5d234178dd529301e90",
+      "reports\\BANKING77_LABEL_TO_ID.json": "7ed70c1e6727112af01cb7e3c7b473bc1e0b0c35c666e29a81279ab0635348e0",
+      "lab10\\config.json": "0691ee619c78e51629e0894ff197d02b802980342af791e639f1cfaf63fa0a33",
+      "src\\reclamoruta\\predictor.py": "ae67908c9fdbb8c3ae7fb3d3253644e7a6caba1820a959945fa70a1352721e25",
+      "lab10\\occlusion.py": "b8f32e39bd48849470216ef907931f6d610a7bfc17aef19cc69e1ef4d801bc83",
+      "lab10\\run.py": "6b9046bb89e1a0d7b1440044823f893db249191698855b20c12cc8cee3ff215b"
+    },
+    "data_hashes": {
+      "test_unique.csv": "12a685f4e15d86719a7caa3e1502808134997b0101a7db674faac61d821b0d06",
+      "label_to_id.json": "9d933a5ace07c7bcc24568dbe73db752cf0dc1bb692395475b1c7f72a76d4e03"
+    },
+    "config": {
+      "schema_version": 1,
+      "seed": 42,
+      "global_per_class": 2,
+      "global_min_word_occurrences": 3,
+      "batch_size": 32,
+      "threads": 2,
+      "high_confidence_min": 0.95,
+      "near_threshold_window": 0.05
+    },
+    "environment": {
+      "python": "3.13.2",
+      "system": "Windows",
+      "torch": "2.14.0+cu126",
+      "transformers": "4.56.2",
+      "numpy": "2.5.1"
+    },
+    "attribution": "Five test excerpts: BANKING77, PolyAI, CC BY 4.0, https://github.com/PolyAI-LDN/task-specific-datasets",
+    "scope": "Post-hoc test audit only. No training, model selection, calibration refit or threshold retuning."
+  },
+  "test": {
+    "n": 3079,
+    "accuracy": 0.9197791490743747,
+    "macro_f1": 0.9199612426859688,
+    "wrong_routes": 82
+  },
+  "local_cases": [
+    {
+      "id": "test.csv:825",
+      "group_id": "2c8d6127a6f7e4f6a2c6910af16d50685c87b2360b636d45a2377d250605d97b",
+      "text": "How do I avoid getting charged a fee on my card?",
+      "true_label": "card_payment_fee_charged",
+      "predicted_label": "card_payment_fee_charged",
+      "predicted_route": "cobros_reembolsos",
+      "true_route": "cobros_reembolsos",
+      "score": 0.9920900057745928,
+      "threshold": 0.85,
+      "correct": true,
+      "needs_review": false,
+      "case_id": "L1",
+      "reason": "acierto_alta_confianza",
+      "occlusion": {
+        "target_label": "card_payment_fee_charged",
+        "original_score": 0.9920899993292976,
+        "tokens": [
+          {
+            "word": "How",
+            "start": 0,
+            "end": 3,
+            "score_after": 0.9919669269007544,
+            "delta": 0.00012307242854325828,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9919669269007544
+          },
+          {
+            "word": "do",
+            "start": 4,
+            "end": 6,
+            "score_after": 0.9917937747828436,
+            "delta": 0.00029622454645406027,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9917937747828436
+          },
+          {
+            "word": "I",
+            "start": 7,
+            "end": 8,
+            "score_after": 0.9920434952513842,
+            "delta": 4.650407791340072e-05,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9920434952513842
+          },
+          {
+            "word": "avoid",
+            "start": 9,
+            "end": 14,
+            "score_after": 0.9909366727218833,
+            "delta": 0.0011533266074142956,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9909366727218833
+          },
+          {
+            "word": "getting",
+            "start": 15,
+            "end": 22,
+            "score_after": 0.9917609904465171,
+            "delta": 0.00032900888278053486,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9917609904465171
+          },
+          {
+            "word": "charged",
+            "start": 23,
+            "end": 30,
+            "score_after": 0.9885103304882502,
+            "delta": 0.003579668841047434,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9885103304882502
+          },
+          {
+            "word": "a",
+            "start": 31,
+            "end": 32,
+            "score_after": 0.9911195059480483,
+            "delta": 0.0009704933812493266,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9911195059480483
+          },
+          {
+            "word": "fee",
+            "start": 33,
+            "end": 36,
+            "score_after": 0.9882553628219964,
+            "delta": 0.0038346365073012034,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9882553628219964
+          },
+          {
+            "word": "on",
+            "start": 37,
+            "end": 39,
+            "score_after": 0.9910691973159192,
+            "delta": 0.0010208020133783968,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9910691973159192
+          },
+          {
+            "word": "my",
+            "start": 40,
+            "end": 42,
+            "score_after": 0.9907174422494114,
+            "delta": 0.0013725570798862607,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9907174422494114
+          },
+          {
+            "word": "card",
+            "start": 43,
+            "end": 47,
+            "score_after": 0.9421646159500808,
+            "delta": 0.049925383379216814,
+            "prediction_after": "card_payment_fee_charged",
+            "top_score_after": 0.9421646159500808
+          }
+        ],
+        "n_variants": 12,
+        "scoring_seconds": 0.13274860000001354,
+        "elapsed_seconds": 0.13332439999976486
+      }
+    },
+    {
+      "id": "test.csv:2761",
+      "group_id": "3234299212596d71b076efb87981de2b7a4bbb40443aeb923986ceee61e9e679",
+      "text": "whats your exchange rate",
+      "true_label": "exchange_charge",
+      "predicted_label": "exchange_rate",
+      "predicted_route": "informacion_general",
+      "true_route": "cobros_reembolsos",
+      "score": 0.9848304688112903,
+      "threshold": 0.85,
+      "correct": false,
+      "needs_review": false,
+      "case_id": "L2",
+      "reason": "error_de_ruta",
+      "occlusion": {
+        "target_label": "exchange_rate",
+        "original_score": 0.9848304889526364,
+        "tokens": [
+          {
+            "word": "whats",
+            "start": 0,
+            "end": 5,
+            "score_after": 0.9795963290153873,
+            "delta": 0.005234159937249072,
+            "prediction_after": "exchange_rate",
+            "top_score_after": 0.9795963290153873
+          },
+          {
+            "word": "your",
+            "start": 6,
+            "end": 10,
+            "score_after": 0.9850069207081577,
+            "delta": -0.0001764317555212891,
+            "prediction_after": "exchange_rate",
+            "top_score_after": 0.9850069207081577
+          },
+          {
+            "word": "exchange",
+            "start": 11,
+            "end": 19,
+            "score_after": 0.9707444904719467,
+            "delta": 0.014085998480689699,
+            "prediction_after": "exchange_rate",
+            "top_score_after": 0.9707444904719467
+          },
+          {
+            "word": "rate",
+            "start": 20,
+            "end": 24,
+            "score_after": 0.9133294737068656,
+            "delta": 0.0715010152457708,
+            "prediction_after": "exchange_rate",
+            "top_score_after": 0.9133294737068656
+          }
+        ],
+        "n_variants": 5,
+        "scoring_seconds": 0.0431815000001734,
+        "elapsed_seconds": 0.043433200000436045
+      }
+    },
+    {
+      "id": "test.csv:339",
+      "group_id": "3429e76db9c7fca1767eb70fdb95d34c6e4000edd9fae16116c8f43105f0d608",
+      "text": "How do I make sure I don't run out of money on my card while traveling?",
+      "true_label": "automatic_top_up",
+      "predicted_label": "automatic_top_up",
+      "predicted_route": "recargas",
+      "true_route": "recargas",
+      "score": 0.8493206173860581,
+      "threshold": 0.85,
+      "correct": true,
+      "needs_review": true,
+      "case_id": "L3",
+      "reason": "cercano_umbral_inferior",
+      "occlusion": {
+        "target_label": "automatic_top_up",
+        "original_score": 0.8493204540654598,
+        "tokens": [
+          {
+            "word": "How",
+            "start": 0,
+            "end": 3,
+            "score_after": 0.850337103705917,
+            "delta": -0.0010166496404572234,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.850337103705917
+          },
+          {
+            "word": "do",
+            "start": 4,
+            "end": 6,
+            "score_after": 0.8140580047311409,
+            "delta": 0.03526244933431888,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8140580047311409
+          },
+          {
+            "word": "I",
+            "start": 7,
+            "end": 8,
+            "score_after": 0.8054944083748035,
+            "delta": 0.04382604569065629,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8054944083748035
+          },
+          {
+            "word": "make",
+            "start": 9,
+            "end": 13,
+            "score_after": 0.7630133785886367,
+            "delta": 0.08630707547682304,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.7630133785886367
+          },
+          {
+            "word": "sure",
+            "start": 14,
+            "end": 18,
+            "score_after": 0.859142280136016,
+            "delta": -0.009821826070556261,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.859142280136016
+          },
+          {
+            "word": "I",
+            "start": 19,
+            "end": 20,
+            "score_after": 0.88212689231636,
+            "delta": -0.03280643825090024,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.88212689231636
+          },
+          {
+            "word": "don't",
+            "start": 21,
+            "end": 26,
+            "score_after": 0.9304207180326348,
+            "delta": -0.08110026396717507,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.9304207180326348
+          },
+          {
+            "word": "run",
+            "start": 27,
+            "end": 30,
+            "score_after": 0.7219740149810481,
+            "delta": 0.12734643908441168,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.7219740149810481
+          },
+          {
+            "word": "out",
+            "start": 31,
+            "end": 34,
+            "score_after": 0.8920095744073863,
+            "delta": -0.04268912034192651,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8920095744073863
+          },
+          {
+            "word": "of",
+            "start": 35,
+            "end": 37,
+            "score_after": 0.9001555512471662,
+            "delta": -0.05083509718170642,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.9001555512471662
+          },
+          {
+            "word": "money",
+            "start": 38,
+            "end": 43,
+            "score_after": 0.8153582821615113,
+            "delta": 0.03396217190394846,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8153582821615113
+          },
+          {
+            "word": "on",
+            "start": 44,
+            "end": 46,
+            "score_after": 0.8819395481927811,
+            "delta": -0.032619094127321335,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8819395481927811
+          },
+          {
+            "word": "my",
+            "start": 47,
+            "end": 49,
+            "score_after": 0.8134606469077235,
+            "delta": 0.03585980715773629,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.8134606469077235
+          },
+          {
+            "word": "card",
+            "start": 50,
+            "end": 54,
+            "score_after": 0.829808919555067,
+            "delta": 0.01951153451039278,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.829808919555067
+          },
+          {
+            "word": "while",
+            "start": 55,
+            "end": 60,
+            "score_after": 0.9284215889933768,
+            "delta": -0.07910113492791704,
+            "prediction_after": "automatic_top_up",
+            "top_score_after": 0.9284215889933768
+          },
+          {
+            "word": "traveling",
+            "start": 61,
+            "end": 70,
+            "score_after": 0.03669090791788972,
+            "delta": 0.81262954614757,
+            "prediction_after": "wrong_amount_of_cash_received",
+            "top_score_after": 0.40235840234013026
+          }
+        ],
+        "n_variants": 17,
+        "scoring_seconds": 0.16172670000105427,
+        "elapsed_seconds": 0.16237879999971483
+      }
+    },
+    {
+      "id": "test.csv:2391",
+      "group_id": "044c47dfe2f1a107b0635ee0a383dbed66b131eb65100579bbc5296f95033412",
+      "text": "Can I verify a top-up and what card is used?",
+      "true_label": "verify_top_up",
+      "predicted_label": "verify_top_up",
+      "predicted_route": "recargas",
+      "true_route": "recargas",
+      "score": 0.8508448830514049,
+      "threshold": 0.85,
+      "correct": true,
+      "needs_review": false,
+      "case_id": "L4",
+      "reason": "cercano_umbral_superior",
+      "occlusion": {
+        "target_label": "verify_top_up",
+        "original_score": 0.8508447894374442,
+        "tokens": [
+          {
+            "word": "Can",
+            "start": 0,
+            "end": 3,
+            "score_after": 0.8876596265523151,
+            "delta": -0.03681483711487088,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.8876596265523151
+          },
+          {
+            "word": "I",
+            "start": 4,
+            "end": 5,
+            "score_after": 0.8889983991665772,
+            "delta": -0.03815360972913295,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.8889983991665772
+          },
+          {
+            "word": "verify",
+            "start": 6,
+            "end": 12,
+            "score_after": 0.00019868582166302282,
+            "delta": 0.8506461036157812,
+            "prediction_after": "supported_cards_and_currencies",
+            "top_score_after": 0.9678628662288604
+          },
+          {
+            "word": "a",
+            "start": 13,
+            "end": 14,
+            "score_after": 0.9372557266418692,
+            "delta": -0.08641093720442494,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9372557266418692
+          },
+          {
+            "word": "top",
+            "start": 15,
+            "end": 18,
+            "score_after": 0.9395749010675704,
+            "delta": -0.08873011163012612,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9395749010675704
+          },
+          {
+            "word": "up",
+            "start": 19,
+            "end": 21,
+            "score_after": 0.8768776764103773,
+            "delta": -0.026032886972933045,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.8768776764103773
+          },
+          {
+            "word": "and",
+            "start": 22,
+            "end": 25,
+            "score_after": 0.9370377918478109,
+            "delta": -0.08619300241036665,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9370377918478109
+          },
+          {
+            "word": "what",
+            "start": 26,
+            "end": 30,
+            "score_after": 0.9865811164039571,
+            "delta": -0.13573632696651283,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9865811164039571
+          },
+          {
+            "word": "card",
+            "start": 31,
+            "end": 35,
+            "score_after": 0.9865319834868775,
+            "delta": -0.1356871940494333,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9865319834868775
+          },
+          {
+            "word": "is",
+            "start": 36,
+            "end": 38,
+            "score_after": 0.9013480966639452,
+            "delta": -0.05050330722650098,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9013480966639452
+          },
+          {
+            "word": "used",
+            "start": 39,
+            "end": 43,
+            "score_after": 0.9070775326366062,
+            "delta": -0.05623274319916194,
+            "prediction_after": "verify_top_up",
+            "top_score_after": 0.9070775326366062
+          }
+        ],
+        "n_variants": 12,
+        "scoring_seconds": 0.092566700000134,
+        "elapsed_seconds": 0.09304389999942941
+      }
+    },
+    {
+      "id": "test.csv:2672",
+      "group_id": "f7e05158b701c494c6781f284b7ca150f1c9daa358f8701f55dd25d441204d9d",
+      "text": "Why can't I top up?",
+      "true_label": "top_up_failed",
+      "predicted_label": "top_up_failed",
+      "predicted_route": "recargas",
+      "true_route": "recargas",
+      "score": 0.625193185299734,
+      "threshold": 0.85,
+      "correct": true,
+      "needs_review": true,
+      "case_id": "L5",
+      "reason": "subgrupo_negacion",
+      "occlusion": {
+        "target_label": "top_up_failed",
+        "original_score": 0.6251933018176429,
+        "tokens": [
+          {
+            "word": "Why",
+            "start": 0,
+            "end": 3,
+            "score_after": 0.6414516189975152,
+            "delta": -0.01625831717987236,
+            "prediction_after": "top_up_failed",
+            "top_score_after": 0.6414516189975152
+          },
+          {
+            "word": "can't",
+            "start": 4,
+            "end": 9,
+            "score_after": 0.062329132616487946,
+            "delta": 0.5628641692011549,
+            "prediction_after": "top_up_reverted",
+            "top_score_after": 0.6566030899442479
+          },
+          {
+            "word": "I",
+            "start": 10,
+            "end": 11,
+            "score_after": 0.7908836206896404,
+            "delta": -0.16569031887199748,
+            "prediction_after": "top_up_failed",
+            "top_score_after": 0.7908836206896404
+          },
+          {
+            "word": "top",
+            "start": 12,
+            "end": 15,
+            "score_after": 0.1898273012786501,
+            "delta": 0.43536600053899277,
+            "prediction_after": "top_up_reverted",
+            "top_score_after": 0.34770732440534935
+          },
+          {
+            "word": "up",
+            "start": 16,
+            "end": 18,
+            "score_after": 0.851073294626085,
+            "delta": -0.22587999280844218,
+            "prediction_after": "top_up_failed",
+            "top_score_after": 0.851073294626085
+          }
+        ],
+        "n_variants": 6,
+        "scoring_seconds": 0.05559659999926225,
+        "elapsed_seconds": 0.055858400000033726
+      }
+    }
+  ],
+  "global": {
+    "n": 154,
+    "per_class": 2,
+    "min_word_occurrences": 3,
+    "words": [
+      {
+        "word": "europe",
+        "count": 3,
+        "mean_abs_delta": 0.9135032564818034,
+        "mean_signed_delta": 0.9135032564818034
+      },
+      {
+        "word": "refund",
+        "count": 5,
+        "mean_abs_delta": 0.6509839063364015,
+        "mean_signed_delta": 0.6509839063364015
+      },
+      {
+        "word": "disposable",
+        "count": 5,
+        "mean_abs_delta": 0.6423567035695408,
+        "mean_signed_delta": 0.6407931419307107
+      },
+      {
+        "word": "virtual",
+        "count": 5,
+        "mean_abs_delta": 0.6308588832033849,
+        "mean_signed_delta": 0.6308588832033849
+      },
+      {
+        "word": "accepted",
+        "count": 3,
+        "mean_abs_delta": 0.6233937363161511,
+        "mean_signed_delta": 0.6228780480865624
+      },
+      {
+        "word": "pin",
+        "count": 6,
+        "mean_abs_delta": 0.5556216306334841,
+        "mean_signed_delta": 0.5552425090292784
+      },
+      {
+        "word": "pending",
+        "count": 8,
+        "mean_abs_delta": 0.4584029702568213,
+        "mean_signed_delta": 0.4576323812058321
+      },
+      {
+        "word": "payment",
+        "count": 8,
+        "mean_abs_delta": 0.4460519758638647,
+        "mean_signed_delta": 0.44062184774843616
+      },
+      {
+        "word": "fee",
+        "count": 8,
+        "mean_abs_delta": 0.44459720078974185,
+        "mean_signed_delta": 0.44459720078974185
+      },
+      {
+        "word": "change",
+        "count": 4,
+        "mean_abs_delta": 0.42129590740172995,
+        "mean_signed_delta": 0.42129590740172995
+      },
+      {
+        "word": "long",
+        "count": 5,
+        "mean_abs_delta": 0.4169665700015174,
+        "mean_signed_delta": 0.4166267030715721
+      },
+      {
+        "word": "verify",
+        "count": 4,
+        "mean_abs_delta": 0.37665169890935735,
+        "mean_signed_delta": 0.37540938714846384
+      },
+      {
+        "word": "declined",
+        "count": 3,
+        "mean_abs_delta": 0.3534572359579679,
+        "mean_signed_delta": 0.3534572359579679
+      },
+      {
+        "word": "identity",
+        "count": 5,
+        "mean_abs_delta": 0.3364936694794627,
+        "mean_signed_delta": 0.3353733568558118
+      },
+      {
+        "word": "transfer",
+        "count": 20,
+        "mean_abs_delta": 0.3071051806941647,
+        "mean_signed_delta": 0.27948561164587443
+      },
+      {
+        "word": "atm",
+        "count": 6,
+        "mean_abs_delta": 0.29702270610366205,
+        "mean_signed_delta": 0.2919894465960083
+      },
+      {
+        "word": "statement",
+        "count": 3,
+        "mean_abs_delta": 0.2750382423754212,
+        "mean_signed_delta": 0.2750382423754212
+      },
+      {
+        "word": "add",
+        "count": 3,
+        "mean_abs_delta": 0.2665457137038289,
+        "mean_signed_delta": 0.26575501270209173
+      },
+      {
+        "word": "currencies",
+        "count": 4,
+        "mean_abs_delta": 0.2478828042666802,
+        "mean_signed_delta": 0.2478828042666802
+      },
+      {
+        "word": "received",
+        "count": 3,
+        "mean_abs_delta": 0.24550544760955684,
+        "mean_signed_delta": 0.24550544760955684
+      },
+      {
+        "word": "much",
+        "count": 4,
+        "mean_abs_delta": 0.23186331993085282,
+        "mean_signed_delta": 0.23186331993085282
+      },
+      {
+        "word": "didn't",
+        "count": 3,
+        "mean_abs_delta": 0.22820716777552222,
+        "mean_signed_delta": 0.22707492952081185
+      },
+      {
+        "word": "exchange",
+        "count": 7,
+        "mean_abs_delta": 0.22471504200018688,
+        "mean_signed_delta": 0.1721686288641102
+      },
+      {
+        "word": "cash",
+        "count": 14,
+        "mean_abs_delta": 0.22368129668595002,
+        "mean_signed_delta": 0.22349452385037835
+      },
+      {
+        "word": "work",
+        "count": 3,
+        "mean_abs_delta": 0.2122784455952175,
+        "mean_signed_delta": 0.2122784455952175
+      },
+      {
+        "word": "rate",
+        "count": 5,
+        "mean_abs_delta": 0.2118284010548222,
+        "mean_signed_delta": 0.1440843960638705
+      },
+      {
+        "word": "card",
+        "count": 45,
+        "mean_abs_delta": 0.20879433586824192,
+        "mean_signed_delta": 0.19045664448067492
+      },
+      {
+        "word": "top",
+        "count": 17,
+        "mean_abs_delta": 0.18273378919629096,
+        "mean_signed_delta": 0.17911607033219623
+      },
+      {
+        "word": "new",
+        "count": 5,
+        "mean_abs_delta": 0.1697253554714475,
+        "mean_signed_delta": 0.1695977901304668
+      },
+      {
+        "word": "working",
+        "count": 3,
+        "mean_abs_delta": 0.16854709818110333,
+        "mean_signed_delta": 0.1678762684371596
+      },
+      {
+        "word": "into",
+        "count": 4,
+        "mean_abs_delta": 0.16610212209246092,
+        "mean_signed_delta": -0.04302288047807662
+      },
+      {
+        "word": "need",
+        "count": 11,
+        "mean_abs_delta": 0.15026409208569305,
+        "mean_signed_delta": 0.136970177510613
+      },
+      {
+        "word": "don't",
+        "count": 4,
+        "mean_abs_delta": 0.14587730033186733,
+        "mean_signed_delta": 0.05111452699928401
+      },
+      {
+        "word": "cancelled",
+        "count": 3,
+        "mean_abs_delta": 0.1438445867857099,
+        "mean_signed_delta": 0.1438445867857099
+      },
+      {
+        "word": "see",
+        "count": 4,
+        "mean_abs_delta": 0.13913684088681383,
+        "mean_signed_delta": 0.13850429374154927
+      },
+      {
+        "word": "today",
+        "count": 5,
+        "mean_abs_delta": 0.10535224946569643,
+        "mean_signed_delta": -0.011541060333014686
+      },
+      {
+        "word": "checked",
+        "count": 4,
+        "mean_abs_delta": 0.10217410248072216,
+        "mean_signed_delta": -0.009327370033094182
+      },
+      {
+        "word": "app",
+        "count": 6,
+        "mean_abs_delta": 0.10038552590279164,
+        "mean_signed_delta": 0.09994620908006273
+      },
+      {
+        "word": "money",
+        "count": 19,
+        "mean_abs_delta": 0.09402636027410424,
+        "mean_signed_delta": 0.007403883467042396
+      },
+      {
+        "word": "some",
+        "count": 4,
+        "mean_abs_delta": 0.09153808537802369,
+        "mean_signed_delta": -0.08946679949972638
+      },
+      {
+        "word": "cards",
+        "count": 5,
+        "mean_abs_delta": 0.09153076450153028,
+        "mean_signed_delta": 0.09153076450153028
+      },
+      {
+        "word": "not",
+        "count": 14,
+        "mean_abs_delta": 0.08582442972534524,
+        "mean_signed_delta": 0.06416799868552943
+      },
+      {
+        "word": "have",
+        "count": 12,
+        "mean_abs_delta": 0.08174014444091321,
+        "mean_signed_delta": 0.036133180436711716
+      },
+      {
+        "word": "currency",
+        "count": 3,
+        "mean_abs_delta": 0.08142378933008065,
+        "mean_signed_delta": 0.08105492597503801
+      },
+      {
+        "word": "charge",
+        "count": 3,
+        "mean_abs_delta": 0.07675307825282877,
+        "mean_signed_delta": 0.07675307825282877
+      },
+      {
+        "word": "out",
+        "count": 5,
+        "mean_abs_delta": 0.07334740757081787,
+        "mean_signed_delta": -0.03608929455693605
+      },
+      {
+        "word": "one",
+        "count": 5,
+        "mean_abs_delta": 0.06757826921081314,
+        "mean_signed_delta": 0.0674682905987323
+      },
+      {
+        "word": "accept",
+        "count": 3,
+        "mean_abs_delta": 0.06734669506308481,
+        "mean_signed_delta": 0.04203849494258179
+      },
+      {
+        "word": "did",
+        "count": 7,
+        "mean_abs_delta": 0.06728139121439654,
+        "mean_signed_delta": 0.05797694867788176
+      },
+      {
+        "word": "on",
+        "count": 12,
+        "mean_abs_delta": 0.06337735663198048,
+        "mean_signed_delta": 0.036395394237865135
+      },
+      {
+        "word": "used",
+        "count": 4,
+        "mean_abs_delta": 0.06170462507241675,
+        "mean_signed_delta": 0.03864160522175647
+      },
+      {
+        "word": "make",
+        "count": 5,
+        "mean_abs_delta": 0.05809985921162851,
+        "mean_signed_delta": 0.05730008435068316
+      },
+      {
+        "word": "your",
+        "count": 5,
+        "mean_abs_delta": 0.05619608277923073,
+        "mean_signed_delta": -0.053040633535722845
+      },
+      {
+        "word": "amount",
+        "count": 4,
+        "mean_abs_delta": 0.055933693191544204,
+        "mean_signed_delta": 0.044988499787833175
+      },
+      {
+        "word": "transaction",
+        "count": 4,
+        "mean_abs_delta": 0.05402597106501775,
+        "mean_signed_delta": 0.040017475755599635
+      },
+      {
+        "word": "happen",
+        "count": 3,
+        "mean_abs_delta": 0.048504317658937646,
+        "mean_signed_delta": 0.048446222339030974
+      },
+      {
+        "word": "been",
+        "count": 3,
+        "mean_abs_delta": 0.04760706639122825,
+        "mean_signed_delta": 0.04760706639122825
+      },
+      {
+        "word": "account",
+        "count": 18,
+        "mean_abs_delta": 0.04758478641676098,
+        "mean_signed_delta": 0.027542048021244058
+      },
+      {
+        "word": "someone",
+        "count": 4,
+        "mean_abs_delta": 0.044547802447610224,
+        "mean_signed_delta": -0.04203201223300154
+      },
+      {
+        "word": "made",
+        "count": 5,
+        "mean_abs_delta": 0.038384509729191996,
+        "mean_signed_delta": -0.03832414178975189
+      },
+      {
+        "word": "me",
+        "count": 12,
+        "mean_abs_delta": 0.0379862866548602,
+        "mean_signed_delta": 0.029850252304412
+      },
+      {
+        "word": "has",
+        "count": 6,
+        "mean_abs_delta": 0.03795973183324102,
+        "mean_signed_delta": 0.03795973183324102
+      },
+      {
+        "word": "and",
+        "count": 17,
+        "mean_abs_delta": 0.037686160662038705,
+        "mean_signed_delta": 0.01635334804473277
+      },
+      {
+        "word": "but",
+        "count": 9,
+        "mean_abs_delta": 0.035017851080856796,
+        "mean_signed_delta": -0.03210399081795949
+      },
+      {
+        "word": "right",
+        "count": 5,
+        "mean_abs_delta": 0.03496703403223308,
+        "mean_signed_delta": -0.01199876367521292
+      },
+      {
+        "word": "pay",
+        "count": 3,
+        "mean_abs_delta": 0.034797996733239654,
+        "mean_signed_delta": 0.03275138832831211
+      },
+      {
+        "word": "do",
+        "count": 31,
+        "mean_abs_delta": 0.033157648572604226,
+        "mean_signed_delta": 0.00467256058173134
+      },
+      {
+        "word": "think",
+        "count": 4,
+        "mean_abs_delta": 0.033090867348114034,
+        "mean_signed_delta": -0.023579144334100605
+      },
+      {
+        "word": "can",
+        "count": 31,
+        "mean_abs_delta": 0.03241577078967558,
+        "mean_signed_delta": 0.029615583716771046
+      },
+      {
+        "word": "for",
+        "count": 16,
+        "mean_abs_delta": 0.02970399811214381,
+        "mean_signed_delta": 0.029145389634644407
+      },
+      {
+        "word": "what",
+        "count": 15,
+        "mean_abs_delta": 0.028330907058800845,
+        "mean_signed_delta": 0.02730840716660227
+      },
+      {
+        "word": "i",
+        "count": 115,
+        "mean_abs_delta": 0.026921739547026192,
+        "mean_signed_delta": 0.0013225231578985754
+      },
+      {
+        "word": "so",
+        "count": 4,
+        "mean_abs_delta": 0.026823270250022443,
+        "mean_signed_delta": -0.026766178979917996
+      },
+      {
+        "word": "a",
+        "count": 49,
+        "mean_abs_delta": 0.02674877863873235,
+        "mean_signed_delta": 0.023478812852073448
+      },
+      {
+        "word": "my",
+        "count": 89,
+        "mean_abs_delta": 0.026012492784909563,
+        "mean_signed_delta": 0.008031813709860799
+      },
+      {
+        "word": "there",
+        "count": 13,
+        "mean_abs_delta": 0.025419299473864763,
+        "mean_signed_delta": 0.002240242351789494
+      },
+      {
+        "word": "where",
+        "count": 11,
+        "mean_abs_delta": 0.02486509969165525,
+        "mean_signed_delta": -0.02197642340756892
+      },
+      {
+        "word": "am",
+        "count": 4,
+        "mean_abs_delta": 0.024692418098208074,
+        "mean_signed_delta": 0.023547689979617065
+      },
+      {
+        "word": "how",
+        "count": 30,
+        "mean_abs_delta": 0.022940662108722403,
+        "mean_signed_delta": 0.01522081456304841
+      },
+      {
+        "word": "get",
+        "count": 12,
+        "mean_abs_delta": 0.0226601579281724,
+        "mean_signed_delta": -0.005526058918749285
+      },
+      {
+        "word": "was",
+        "count": 22,
+        "mean_abs_delta": 0.022486040805488137,
+        "mean_signed_delta": 0.01600567512813995
+      },
+      {
+        "word": "charged",
+        "count": 4,
+        "mean_abs_delta": 0.02205508816762211,
+        "mean_signed_delta": 0.02205508816762211
+      },
+      {
+        "word": "why",
+        "count": 16,
+        "mean_abs_delta": 0.022006815511847237,
+        "mean_signed_delta": 0.013624084793263207
+      },
+      {
+        "word": "take",
+        "count": 3,
+        "mean_abs_delta": 0.021989299895058084,
+        "mean_signed_delta": 0.01296782481883881
+      },
+      {
+        "word": "know",
+        "count": 3,
+        "mean_abs_delta": 0.020881370829867112,
+        "mean_signed_delta": 0.017970604890229353
+      },
+      {
+        "word": "it",
+        "count": 27,
+        "mean_abs_delta": 0.02048050373101753,
+        "mean_signed_delta": -0.010214846930355799
+      },
+      {
+        "word": "that",
+        "count": 12,
+        "mean_abs_delta": 0.01996164840644314,
+        "mean_signed_delta": 0.01696566250933548
+      },
+      {
+        "word": "the",
+        "count": 50,
+        "mean_abs_delta": 0.01909009709121006,
+        "mean_signed_delta": 0.007041945891035398
+      },
+      {
+        "word": "when",
+        "count": 11,
+        "mean_abs_delta": 0.019085989740247545,
+        "mean_signed_delta": 0.018758797601534358
+      },
+      {
+        "word": "already",
+        "count": 4,
+        "mean_abs_delta": 0.01874272578056657,
+        "mean_signed_delta": -0.017452425840034425
+      },
+      {
+        "word": "an",
+        "count": 8,
+        "mean_abs_delta": 0.017447765131398868,
+        "mean_signed_delta": -0.0005723646509210589
+      },
+      {
+        "word": "showing",
+        "count": 3,
+        "mean_abs_delta": 0.016637496778857248,
+        "mean_signed_delta": 0.016637496778857248
+      },
+      {
+        "word": "you",
+        "count": 20,
+        "mean_abs_delta": 0.016584983159306416,
+        "mean_signed_delta": 0.009890211421707313
+      },
+      {
+        "word": "are",
+        "count": 8,
+        "mean_abs_delta": 0.016344180586578924,
+        "mean_signed_delta": -0.008223259917046519
+      },
+      {
+        "word": "is",
+        "count": 26,
+        "mean_abs_delta": 0.015743087545826335,
+        "mean_signed_delta": 0.0063841869677957975
+      },
+      {
+        "word": "up",
+        "count": 20,
+        "mean_abs_delta": 0.014888967881210574,
+        "mean_signed_delta": 0.012638975045666506
+      },
+      {
+        "word": "in",
+        "count": 8,
+        "mean_abs_delta": 0.014715387252284162,
+        "mean_signed_delta": 0.01424476460771712
+      },
+      {
+        "word": "please",
+        "count": 6,
+        "mean_abs_delta": 0.012712195754730074,
+        "mean_signed_delta": 0.0008136496571655716
+      },
+      {
+        "word": "from",
+        "count": 9,
+        "mean_abs_delta": 0.0126164391467621,
+        "mean_signed_delta": 0.008303080268344094
+      },
+      {
+        "word": "to",
+        "count": 52,
+        "mean_abs_delta": 0.010845765253931041,
+        "mean_signed_delta": -0.005555730064741629
+      },
+      {
+        "word": "check",
+        "count": 3,
+        "mean_abs_delta": 0.010548579729198685,
+        "mean_signed_delta": 0.010149352456984562
+      },
+      {
+        "word": "with",
+        "count": 9,
+        "mean_abs_delta": 0.008467326283277756,
+        "mean_signed_delta": 0.007886841891166544
+      },
+      {
+        "word": "of",
+        "count": 16,
+        "mean_abs_delta": 0.00810611308039862,
+        "mean_signed_delta": -0.00252789337244343
+      },
+      {
+        "word": "this",
+        "count": 16,
+        "mean_abs_delta": 0.0076047434981006,
+        "mean_signed_delta": 0.006614506064836989
+      },
+      {
+        "word": "something",
+        "count": 3,
+        "mean_abs_delta": 0.0074785756152741896,
+        "mean_signed_delta": -5.8936540159149065e-05
+      },
+      {
+        "word": "will",
+        "count": 7,
+        "mean_abs_delta": 0.00728520886999952,
+        "mean_signed_delta": 0.0029185736702011127
+      },
+      {
+        "word": "report",
+        "count": 4,
+        "mean_abs_delta": 0.006534773665122312,
+        "mean_signed_delta": 0.0048485619382404865
+      },
+      {
+        "word": "use",
+        "count": 5,
+        "mean_abs_delta": 0.005276991056713509,
+        "mean_signed_delta": 0.0006212960107094378
+      },
+      {
+        "word": "withdrawal",
+        "count": 5,
+        "mean_abs_delta": 0.00506530083918324,
+        "mean_signed_delta": -0.002053509062588321
+      },
+      {
+        "word": "wrong",
+        "count": 4,
+        "mean_abs_delta": 0.004977935630041147,
+        "mean_signed_delta": 0.002870818357125743
+      },
+      {
+        "word": "if",
+        "count": 4,
+        "mean_abs_delta": 0.004584627524239382,
+        "mean_signed_delta": 0.0039594654243251814
+      },
+      {
+        "word": "help",
+        "count": 4,
+        "mean_abs_delta": 0.0037854019378254777,
+        "mean_signed_delta": -0.0026165707279706407
+      },
+      {
+        "word": "like",
+        "count": 4,
+        "mean_abs_delta": 0.0032724071457003456,
+        "mean_signed_delta": 0.0014767133278139333
+      },
+      {
+        "word": "through",
+        "count": 4,
+        "mean_abs_delta": 0.0029966437930315226,
+        "mean_signed_delta": -0.002809489488366096
+      },
+      {
+        "word": "or",
+        "count": 3,
+        "mean_abs_delta": 0.002911031194450279,
+        "mean_signed_delta": -0.0025512931780763415
+      },
+      {
+        "word": "be",
+        "count": 10,
+        "mean_abs_delta": 0.002270581260531751,
+        "mean_signed_delta": -0.0004028663200136673
+      },
+      {
+        "word": "extra",
+        "count": 3,
+        "mean_abs_delta": 0.0022511970464156317,
+        "mean_signed_delta": 0.0016801575541465958
+      },
+      {
+        "word": "which",
+        "count": 3,
+        "mean_abs_delta": 0.0018615391915342376,
+        "mean_signed_delta": -0.001272571346265905
+      },
+      {
+        "word": "shows",
+        "count": 3,
+        "mean_abs_delta": 0.0015909991433434485,
+        "mean_signed_delta": 0.0012449973932906477
+      },
+      {
+        "word": "does",
+        "count": 6,
+        "mean_abs_delta": 0.0015081131894597772,
+        "mean_signed_delta": 0.0003393456916173654
+      },
+      {
+        "word": "isn't",
+        "count": 3,
+        "mean_abs_delta": 0.0013565233489803985,
+        "mean_signed_delta": 0.0002115209400222288
+      },
+      {
+        "word": "tried",
+        "count": 4,
+        "mean_abs_delta": 0.0010368316841932457,
+        "mean_signed_delta": 0.0009937754263228682
+      },
+      {
+        "word": "as",
+        "count": 5,
+        "mean_abs_delta": 0.0009468678783958184,
+        "mean_signed_delta": -0.0007970014656519586
+      },
+      {
+        "word": "at",
+        "count": 3,
+        "mean_abs_delta": 0.0008904536166325361,
+        "mean_signed_delta": 0.00087733628445504
+      },
+      {
+        "word": "still",
+        "count": 4,
+        "mean_abs_delta": 0.000813256781394156,
+        "mean_signed_delta": 0.0005406129463880194
+      },
+      {
+        "word": "would",
+        "count": 5,
+        "mean_abs_delta": 0.0007243435515702723,
+        "mean_signed_delta": 0.00040284205868699183
+      },
+      {
+        "word": "got",
+        "count": 3,
+        "mean_abs_delta": 0.00034301136830039436,
+        "mean_signed_delta": -0.0001486613180404032
+      }
+    ],
+    "n_variants": 1851,
+    "elapsed_seconds": 18.39508459999979,
+    "scoring_seconds": 18.306288699997822,
+    "sample": [
+      {
+        "id": "test.csv:1767",
+        "group_id": "01f348ae6a2812eb573f999ed2df3699b3320b0c1e02a401671c52413397fbec",
+        "true_label": "Refund_not_showing_up",
+        "target_label": "Refund_not_showing_up",
+        "score": 0.9838405363888151,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06692949999978737
+      },
+      {
+        "id": "test.csv:1761",
+        "group_id": "d0fcb5ec968f81a832606df66ff53d4821c4240cb4616c37ebed1974fdb75827",
+        "true_label": "Refund_not_showing_up",
+        "target_label": "Refund_not_showing_up",
+        "score": 0.9865941509302422,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06324150000000373
+      },
+      {
+        "id": "test.csv:2857",
+        "group_id": "a280fc7c6a820554cecc0ba795b08333250755e586c1ddab957835d2b99f82ef",
+        "true_label": "activate_my_card",
+        "target_label": "activate_my_card",
+        "score": 0.9902806088444184,
+        "n_variants": 5,
+        "elapsed_seconds": 0.04150299999946583
+      },
+      {
+        "id": "test.csv:2855",
+        "group_id": "7e87fb929dc6db690e382b45d8bb69d3125a65f7b0c33dada52c4bf7b6fd9a28",
+        "true_label": "activate_my_card",
+        "target_label": "activate_my_card",
+        "score": 0.9894483243288781,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06105970000044181
+      },
+      {
+        "id": "test.csv:494",
+        "group_id": "66426850870e8a0549f573cca4cd71267a2bd2f9ef265a587bac359c2ea33e6a",
+        "true_label": "age_limit",
+        "target_label": "age_limit",
+        "score": 0.9823362158667428,
+        "n_variants": 9,
+        "elapsed_seconds": 0.0655851999999868
+      },
+      {
+        "id": "test.csv:488",
+        "group_id": "acafbf514b89392289c0299c6881bbf7026373239f9d6adced9080a558a6dc26",
+        "true_label": "age_limit",
+        "target_label": "age_limit",
+        "score": 0.9820134910394321,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06194279999999708
+      },
+      {
+        "id": "test.csv:2966",
+        "group_id": "1cdce3ddc28bc7cf7e72b3c9237af4e641c702731ee8d8aa8e5d3e269659a440",
+        "true_label": "apple_pay_or_google_pay",
+        "target_label": "apple_pay_or_google_pay",
+        "score": 0.9855544271455962,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07710500000030152
+      },
+      {
+        "id": "test.csv:2994",
+        "group_id": "bdf7284c770e552da86752feeeaea1c8d34b63263d4fd289c89afdfcae959ee8",
+        "true_label": "apple_pay_or_google_pay",
+        "target_label": "apple_pay_or_google_pay",
+        "score": 0.9866769374339157,
+        "n_variants": 14,
+        "elapsed_seconds": 0.13453900000058638
+      },
+      {
+        "id": "test.csv:1445",
+        "group_id": "fe99cb370d8fd92739f8d8c2045a186535cf21338b818e27ea6ffa0d650d81b3",
+        "true_label": "atm_support",
+        "target_label": "atm_support",
+        "score": 0.9792880171941207,
+        "n_variants": 11,
+        "elapsed_seconds": 0.12053350000041974
+      },
+      {
+        "id": "test.csv:1478",
+        "group_id": "cdb6b21541581e64cd1cf1d653d37ee8837a08e0cfa86d5350900485cfaffe03",
+        "true_label": "atm_support",
+        "target_label": "atm_support",
+        "score": 0.5936382960769373,
+        "n_variants": 9,
+        "elapsed_seconds": 0.0827530000005936
+      },
+      {
+        "id": "test.csv:347",
+        "group_id": "4aa6a2d3827711d2db1049c2f102bb3e6886480ccbabb2b78a685db448ef85b2",
+        "true_label": "automatic_top_up",
+        "target_label": "automatic_top_up",
+        "score": 0.9812763679647264,
+        "n_variants": 11,
+        "elapsed_seconds": 0.09005830000023707
+      },
+      {
+        "id": "test.csv:322",
+        "group_id": "9b15e1771ffa32d745a8e34fd6a0dc528903f047bd7c631bccfed0fb5ec39a64",
+        "true_label": "automatic_top_up",
+        "target_label": "automatic_top_up",
+        "score": 0.9837403632094734,
+        "n_variants": 20,
+        "elapsed_seconds": 0.25662629999987985
+      },
+      {
+        "id": "test.csv:2681",
+        "group_id": "2031edf3eb9a76d5b174b46205f54ae2c31d30d2ad6804f800d3d4515b8ee5ad",
+        "true_label": "balance_not_updated_after_bank_transfer",
+        "target_label": "balance_not_updated_after_bank_transfer",
+        "score": 0.9657900091021585,
+        "n_variants": 12,
+        "elapsed_seconds": 0.12498249999953259
+      },
+      {
+        "id": "test.csv:2685",
+        "group_id": "2a3bd50952e33c24e857362ea2c05442fbd7f9032577e5f2b1b9397b1212dc45",
+        "true_label": "balance_not_updated_after_bank_transfer",
+        "target_label": "transfer_timing",
+        "score": 0.9646877754554876,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10698270000011689
+      },
+      {
+        "id": "test.csv:1053",
+        "group_id": "74eba8bb36d979d3a0aff3c827dfc1f66b384e2fa1b77dec866bed8219394d13",
+        "true_label": "balance_not_updated_after_cheque_or_cash_deposit",
+        "target_label": "balance_not_updated_after_cheque_or_cash_deposit",
+        "score": 0.9621923426374708,
+        "n_variants": 11,
+        "elapsed_seconds": 0.0892610999999306
+      },
+      {
+        "id": "test.csv:1054",
+        "group_id": "406f2636da63fc75e71ee98b14356a4dc8b99df559a523dfe41080616d037bfa",
+        "true_label": "balance_not_updated_after_cheque_or_cash_deposit",
+        "target_label": "reverted_card_payment?",
+        "score": 0.4245671843253371,
+        "n_variants": 12,
+        "elapsed_seconds": 0.10957360000065819
+      },
+      {
+        "id": "test.csv:2192",
+        "group_id": "d51656d3170afbdde8eed80c57802395946d56934ee1237042b6b7c8c98605a2",
+        "true_label": "beneficiary_not_allowed",
+        "target_label": "beneficiary_not_allowed",
+        "score": 0.9876611558161388,
+        "n_variants": 10,
+        "elapsed_seconds": 0.11182780000035564
+      },
+      {
+        "id": "test.csv:2198",
+        "group_id": "64d485d6856f65c17535c910753bf7ae5ef5a368eb7a82dc6a555821f877ed05",
+        "true_label": "beneficiary_not_allowed",
+        "target_label": "beneficiary_not_allowed",
+        "score": 0.9873576278620466,
+        "n_variants": 15,
+        "elapsed_seconds": 0.17795329999989917
+      },
+      {
+        "id": "test.csv:681",
+        "group_id": "e98fe4b6ca04032eb3fa91faa4493bdbe1e110ef2435352d0d438d15ff43cd92",
+        "true_label": "cancel_transfer",
+        "target_label": "cancel_transfer",
+        "score": 0.9839837149263628,
+        "n_variants": 6,
+        "elapsed_seconds": 0.05808760000036273
+      },
+      {
+        "id": "test.csv:715",
+        "group_id": "59a81c1b76d2feb88129fa88243634c5afa8706e65d659b99957adeb2b634053",
+        "true_label": "cancel_transfer",
+        "target_label": "cancel_transfer",
+        "score": 0.9827457002943337,
+        "n_variants": 22,
+        "elapsed_seconds": 0.2747903999998016
+      },
+      {
+        "id": "test.csv:2932",
+        "group_id": "19032951c89352d9f3ca03b21f2b24f5cd1ebf4e5d71f87be4dd622cd9f3d9f8",
+        "true_label": "card_about_to_expire",
+        "target_label": "card_about_to_expire",
+        "score": 0.9881884269253809,
+        "n_variants": 11,
+        "elapsed_seconds": 0.09699149999960355
+      },
+      {
+        "id": "test.csv:2954",
+        "group_id": "7f9e6fc81502eb7130cf9d0b2b36b390eb8c4272ff3329584dbd7f566f56a759",
+        "true_label": "card_about_to_expire",
+        "target_label": "card_about_to_expire",
+        "score": 0.9843334392361316,
+        "n_variants": 21,
+        "elapsed_seconds": 0.2485697000001892
+      },
+      {
+        "id": "test.csv:986",
+        "group_id": "294e83a073611ef19baedfebb7cf142bbc0d58c563f7d334701f7ea0c25bf21b",
+        "true_label": "card_acceptance",
+        "target_label": "card_acceptance",
+        "score": 0.9293393002573891,
+        "n_variants": 6,
+        "elapsed_seconds": 0.053154799999902025
+      },
+      {
+        "id": "test.csv:974",
+        "group_id": "50214605b64fd9230ddb1f39087805d84b4e0bd8fa6d9dc576fe109e6e304573",
+        "true_label": "card_acceptance",
+        "target_label": "card_acceptance",
+        "score": 0.950351837284837,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06705370000054245
+      },
+      {
+        "id": "test.csv:34",
+        "group_id": "326cd60d36cfb99ec12ce0f186c73956141359c743e43d69a86cf1e51f2c828b",
+        "true_label": "card_arrival",
+        "target_label": "card_arrival",
+        "score": 0.981596317008979,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10226680000050692
+      },
+      {
+        "id": "test.csv:7",
+        "group_id": "42571d78b7078520b38c9261af379c72cc75fc78f463f3c6d828ae49d33365af",
+        "true_label": "card_arrival",
+        "target_label": "card_delivery_estimate",
+        "score": 0.7809059774032099,
+        "n_variants": 7,
+        "elapsed_seconds": 0.04825559999972029
+      },
+      {
+        "id": "test.csv:297",
+        "group_id": "6002af02e14dc7969e13612d7832b5174c46331044302f371ed23bb71859c6a3",
+        "true_label": "card_delivery_estimate",
+        "target_label": "card_delivery_estimate",
+        "score": 0.9460613139965641,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05241810000006808
+      },
+      {
+        "id": "test.csv:280",
+        "group_id": "d497931119472d8e48aa5f592f024615d413dc80311827c43a2169fd58f45a35",
+        "true_label": "card_delivery_estimate",
+        "target_label": "card_delivery_estimate",
+        "score": 0.9622356221448279,
+        "n_variants": 6,
+        "elapsed_seconds": 0.046128500000122585
+      },
+      {
+        "id": "test.csv:50",
+        "group_id": "2243c5dc596293ab2e7e55806247b22e8d807b0d2ce687efd5155a70046730de",
+        "true_label": "card_linking",
+        "target_label": "card_linking",
+        "score": 0.987604301277686,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06146629999966535
+      },
+      {
+        "id": "test.csv:67",
+        "group_id": "aa0289d196448463726b99f3252c8ffcc036f5b915c6fdc011b9b3e39708bbd9",
+        "true_label": "card_linking",
+        "target_label": "card_linking",
+        "score": 0.9873313599686683,
+        "n_variants": 10,
+        "elapsed_seconds": 0.0740592000001925
+      },
+      {
+        "id": "test.csv:381",
+        "group_id": "72bca818982a97bb3b0140144c6db48fd3939bd00885aaebc4034a38d78a494c",
+        "true_label": "card_not_working",
+        "target_label": "card_not_working",
+        "score": 0.9777338176982316,
+        "n_variants": 5,
+        "elapsed_seconds": 0.03964850000011211
+      },
+      {
+        "id": "test.csv:377",
+        "group_id": "8b67769f1b73b491cffbbcb0fa3c5e7174d2d0f0923e603fd1eef6dc7988ffbe",
+        "true_label": "card_not_working",
+        "target_label": "card_not_working",
+        "score": 0.9710734301542007,
+        "n_variants": 15,
+        "elapsed_seconds": 0.139259999999922
+      },
+      {
+        "id": "test.csv:809",
+        "group_id": "fc3ad149a59e69e6e30a7c94ed72b5b2eae0632e4ab794ee2eb909c2771052b4",
+        "true_label": "card_payment_fee_charged",
+        "target_label": "card_payment_fee_charged",
+        "score": 0.9899092445113343,
+        "n_variants": 13,
+        "elapsed_seconds": 0.11243600000034348
+      },
+      {
+        "id": "test.csv:813",
+        "group_id": "1d518887369df9bcf466506352959ba62ab910990e1cc411d43d19cbfbbb8094",
+        "true_label": "card_payment_fee_charged",
+        "target_label": "card_payment_fee_charged",
+        "score": 0.9855335636865136,
+        "n_variants": 10,
+        "elapsed_seconds": 0.09748609999951441
+      },
+      {
+        "id": "test.csv:1101",
+        "group_id": "91ad647be53c20926ca7b45d3848a6b4e8267c5f7550c7ed039c7ba681ca7ed5",
+        "true_label": "card_payment_not_recognised",
+        "target_label": "card_payment_not_recognised",
+        "score": 0.8622123699109049,
+        "n_variants": 9,
+        "elapsed_seconds": 0.08292970000002242
+      },
+      {
+        "id": "test.csv:1086",
+        "group_id": "ef785755bbe3349b449b76de52ccfbdec390af87a5db30f27e72ebfac19500e8",
+        "true_label": "card_payment_not_recognised",
+        "target_label": "card_payment_not_recognised",
+        "score": 0.9780895764651271,
+        "n_variants": 13,
+        "elapsed_seconds": 0.16237179999916407
+      },
+      {
+        "id": "test.csv:125",
+        "group_id": "313f5ca67a8362fce70059c2dbc82eb615291744743e83ba16bbe7bd602ed83e",
+        "true_label": "card_payment_wrong_exchange_rate",
+        "target_label": "card_payment_wrong_exchange_rate",
+        "score": 0.6708937143245642,
+        "n_variants": 15,
+        "elapsed_seconds": 0.2326837999999043
+      },
+      {
+        "id": "test.csv:144",
+        "group_id": "83e127e985c10db7b5a2fd8d18a19d0337b603a45ed617184e91a51c597943eb",
+        "true_label": "card_payment_wrong_exchange_rate",
+        "target_label": "card_payment_wrong_exchange_rate",
+        "score": 0.9771016517347696,
+        "n_variants": 17,
+        "elapsed_seconds": 0.19655869999951392
+      },
+      {
+        "id": "test.csv:1926",
+        "group_id": "f2c353debf34f0962c204986e506da5a2147c819a889444de90b9b737aa0bdab",
+        "true_label": "card_swallowed",
+        "target_label": "card_swallowed",
+        "score": 0.9640390027636182,
+        "n_variants": 15,
+        "elapsed_seconds": 0.12662559999989753
+      },
+      {
+        "id": "test.csv:1942",
+        "group_id": "510c8dc222fe1ee2bac87ae505dd8367eb8f33b6a31766e819a3f764e8edcc31",
+        "true_label": "card_swallowed",
+        "target_label": "card_swallowed",
+        "score": 0.9575400209616539,
+        "n_variants": 12,
+        "elapsed_seconds": 0.1006188999999722
+      },
+      {
+        "id": "test.csv:2902",
+        "group_id": "8019a4cdcb41e489794a50d2b4905589abe2c72376f1ab1b2323dc949a6b8f79",
+        "true_label": "cash_withdrawal_charge",
+        "target_label": "cash_withdrawal_charge",
+        "score": 0.9641079934021233,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07225229999949079
+      },
+      {
+        "id": "test.csv:2918",
+        "group_id": "b0544df787052b12d0d59e47f4c38574723084263f7304c3296406272ea8cc70",
+        "true_label": "cash_withdrawal_charge",
+        "target_label": "cash_withdrawal_charge",
+        "score": 0.986764733558975,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10769359999994776
+      },
+      {
+        "id": "test.csv:2736",
+        "group_id": "c5677fbd01cdc89c0d4604c4739f800bc2491d13ae5ccf9f9b07731b149c259d",
+        "true_label": "cash_withdrawal_not_recognised",
+        "target_label": "cash_withdrawal_not_recognised",
+        "score": 0.9886607637514188,
+        "n_variants": 15,
+        "elapsed_seconds": 0.12975029999961407
+      },
+      {
+        "id": "test.csv:2722",
+        "group_id": "be8e8aad2e6d484fa6647211a9d8fd68bc598a777741c3ac69b608a3a28b6f9e",
+        "true_label": "cash_withdrawal_not_recognised",
+        "target_label": "cash_withdrawal_not_recognised",
+        "score": 0.9053980430977051,
+        "n_variants": 23,
+        "elapsed_seconds": 0.300452999999834
+      },
+      {
+        "id": "test.csv:2149",
+        "group_id": "63e218aa0850510d23de271f4314b124f6288a7b5a3fe8caa42d58619edef3af",
+        "true_label": "change_pin",
+        "target_label": "change_pin",
+        "score": 0.9850090616147993,
+        "n_variants": 11,
+        "elapsed_seconds": 0.0896973999997499
+      },
+      {
+        "id": "test.csv:2154",
+        "group_id": "6fc3cf8d223751093ff6de6ffa75397ec189dcb5d62e1faee8623d94b2b76593",
+        "true_label": "change_pin",
+        "target_label": "pin_blocked",
+        "score": 0.8670825820678965,
+        "n_variants": 6,
+        "elapsed_seconds": 0.049944200000027195
+      },
+      {
+        "id": "test.csv:1407",
+        "group_id": "0edddc3d0cbcaac9e56244b979e3ff6cd6b198932b36c8402b474b7f3b4d70ce",
+        "true_label": "compromised_card",
+        "target_label": "card_payment_not_recognised",
+        "score": 0.6682899924863787,
+        "n_variants": 22,
+        "elapsed_seconds": 0.2416094999998677
+      },
+      {
+        "id": "test.csv:1424",
+        "group_id": "edaf2edaf60ecd477c2066093b2d38f04d30e7b69069cabd234f97c5272cfa57",
+        "true_label": "compromised_card",
+        "target_label": "compromised_card",
+        "score": 0.9172961058034338,
+        "n_variants": 16,
+        "elapsed_seconds": 0.1497589999999036
+      },
+      {
+        "id": "test.csv:565",
+        "group_id": "0810e9d904232ffdcf9f4cb336376b7ce0299685fa4aade63b7e8394f4e21d50",
+        "true_label": "contactless_not_working",
+        "target_label": "contactless_not_working",
+        "score": 0.9561369791098384,
+        "n_variants": 17,
+        "elapsed_seconds": 0.1881637000005867
+      },
+      {
+        "id": "test.csv:595",
+        "group_id": "c7c5ede18bbe526904372398ae607784832442cacc529b91cecf3afa59141f7b",
+        "true_label": "contactless_not_working",
+        "target_label": "contactless_not_working",
+        "score": 0.9513369947791179,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05249840000033146
+      },
+      {
+        "id": "test.csv:3058",
+        "group_id": "496135bc849fdb0edbb521e536c15b7e1ba548f8cd27f15010c2b8b291fe42ae",
+        "true_label": "country_support",
+        "target_label": "card_acceptance",
+        "score": 0.4233309880532245,
+        "n_variants": 7,
+        "elapsed_seconds": 0.051224099999672035
+      },
+      {
+        "id": "test.csv:3079",
+        "group_id": "5a2a41eefa63cbc0ffc7d5d05daf9e005a3db949bc77f996630da0201001b6da",
+        "true_label": "country_support",
+        "target_label": "country_support",
+        "score": 0.928511650572707,
+        "n_variants": 10,
+        "elapsed_seconds": 0.0717371999999159
+      },
+      {
+        "id": "test.csv:1823",
+        "group_id": "448981db98a5ff992bf901b6663e6fde7d14cf68c5393d7d3c247b4462dfd909",
+        "true_label": "declined_card_payment",
+        "target_label": "declined_card_payment",
+        "score": 0.9620675319977144,
+        "n_variants": 6,
+        "elapsed_seconds": 0.04969680000067456
+      },
+      {
+        "id": "test.csv:1836",
+        "group_id": "83d132968a4e025cb6901438d1b0eddb2cbb4e3bc36b701483129aaa4c1d32c4",
+        "true_label": "declined_card_payment",
+        "target_label": "declined_card_payment",
+        "score": 0.9851715526514119,
+        "n_variants": 4,
+        "elapsed_seconds": 0.03753500000038912
+      },
+      {
+        "id": "test.csv:1572",
+        "group_id": "d369b2cdac356f92c66baa3a27486012d1ed8c0028fe47e2f31c05255f7bcd3c",
+        "true_label": "declined_cash_withdrawal",
+        "target_label": "declined_cash_withdrawal",
+        "score": 0.9896858809592146,
+        "n_variants": 16,
+        "elapsed_seconds": 0.13991629999964061
+      },
+      {
+        "id": "test.csv:1564",
+        "group_id": "a29c4f6c572f351326c9a4915cb2f17393125423874492269c5c279137d60b04",
+        "true_label": "declined_cash_withdrawal",
+        "target_label": "declined_cash_withdrawal",
+        "score": 0.9794990548896266,
+        "n_variants": 7,
+        "elapsed_seconds": 0.049623300000348536
+      },
+      {
+        "id": "test.csv:1722",
+        "group_id": "17bf2cd414bde12b8f63901ae6c85b700f5cea9b086e8f8fb44bbe5280e4e0d5",
+        "true_label": "declined_transfer",
+        "target_label": "declined_transfer",
+        "score": 0.7115190279171649,
+        "n_variants": 24,
+        "elapsed_seconds": 0.28016240000033577
+      },
+      {
+        "id": "test.csv:1734",
+        "group_id": "fc149bc91e0c6c5f9d1bf1a013ea8248b3c0c971874309ae3851082e6b2190ca",
+        "true_label": "declined_transfer",
+        "target_label": "transfer_into_account",
+        "score": 0.5698076300750377,
+        "n_variants": 10,
+        "elapsed_seconds": 0.06904480000048352
+      },
+      {
+        "id": "test.csv:1498",
+        "group_id": "5fa4420e706eee9ef241291ec8d3eaa277cf077e4fa6e4452afbe698dd456465",
+        "true_label": "direct_debit_payment_not_recognised",
+        "target_label": "card_payment_not_recognised",
+        "score": 0.9362211569526192,
+        "n_variants": 29,
+        "elapsed_seconds": 0.43508770000062214
+      },
+      {
+        "id": "test.csv:1485",
+        "group_id": "859a6f59730b8b0a9c3aa52fb665daf2c428358a522aeb6e71addddce19e03e9",
+        "true_label": "direct_debit_payment_not_recognised",
+        "target_label": "Refund_not_showing_up",
+        "score": 0.3689355810962935,
+        "n_variants": 39,
+        "elapsed_seconds": 0.8091431000002558
+      },
+      {
+        "id": "test.csv:1374",
+        "group_id": "207c7cba116d4f248135a078131a8616026b9cddf5a1d09ba72364dfca3c5187",
+        "true_label": "disposable_card_limits",
+        "target_label": "disposable_card_limits",
+        "score": 0.9871059151990521,
+        "n_variants": 12,
+        "elapsed_seconds": 0.11360780000086379
+      },
+      {
+        "id": "test.csv:1366",
+        "group_id": "bade85fa7e323188b8292ba69b1d0bf267b7287b517339fa7f1b3b454ea0be54",
+        "true_label": "disposable_card_limits",
+        "target_label": "disposable_card_limits",
+        "score": 0.9857739680574447,
+        "n_variants": 9,
+        "elapsed_seconds": 0.08904830000028596
+      },
+      {
+        "id": "test.csv:1144",
+        "group_id": "a9ae596a17cf28ee1c790c99a71f629a50c7fca981be2e971d1630284331881b",
+        "true_label": "edit_personal_details",
+        "target_label": "edit_personal_details",
+        "score": 0.9858177942686362,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05214539999997214
+      },
+      {
+        "id": "test.csv:1137",
+        "group_id": "414eee7bf76fbf39c6b80ed9bac796359c75e2b5da0bb5ce69053dfb61d22361",
+        "true_label": "edit_personal_details",
+        "target_label": "edit_personal_details",
+        "score": 0.9797256437742022,
+        "n_variants": 10,
+        "elapsed_seconds": 0.0805966999996599
+      },
+      {
+        "id": "test.csv:2789",
+        "group_id": "74f41522a308fa20ba6ca508e4bc7e9f99898b9f5681f20febdd2556788473fc",
+        "true_label": "exchange_charge",
+        "target_label": "exchange_charge",
+        "score": 0.9755509072573413,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06661279999934777
+      },
+      {
+        "id": "test.csv:2783",
+        "group_id": "51725d5bbb1f3ceb94f09dee03d7ccf0334f9427c05cfc76bbc9c9ab92da89df",
+        "true_label": "exchange_charge",
+        "target_label": "exchange_charge",
+        "score": 0.9629419677181902,
+        "n_variants": 6,
+        "elapsed_seconds": 0.04799220000040805
+      },
+      {
+        "id": "test.csv:110",
+        "group_id": "2a6e78b4e95b3a98b6c0636f7e2601569dd6cd416cc6a6ada63dec26861ec5d3",
+        "true_label": "exchange_rate",
+        "target_label": "exchange_rate",
+        "score": 0.9801367398251623,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06716589999996359
+      },
+      {
+        "id": "test.csv:83",
+        "group_id": "db30c23ecbc5819ab6330347ca9136215ea46dfca64d92a06fa3f65cf48fd587",
+        "true_label": "exchange_rate",
+        "target_label": "exchange_rate",
+        "score": 0.9772401319501699,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06081929999982094
+      },
+      {
+        "id": "test.csv:422",
+        "group_id": "0e4b0fa84e49a4b53083631c341cb3499e684df7a43f9eeb2974fa266ebdcafc",
+        "true_label": "exchange_via_app",
+        "target_label": "exchange_via_app",
+        "score": 0.9714336881932104,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10454310000022815
+      },
+      {
+        "id": "test.csv:413",
+        "group_id": "aa21b4406c45e7c9a5c55f80f15c78db6edbd0c7a8bdb788158e8a1a81b71b4a",
+        "true_label": "exchange_via_app",
+        "target_label": "exchange_via_app",
+        "score": 0.3956732122909794,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05066230000011274
+      },
+      {
+        "id": "test.csv:177",
+        "group_id": "f53466886e3927354aae2d2a4710dfb777b3788ba97652bedb65db80bc30c008",
+        "true_label": "extra_charge_on_statement",
+        "target_label": "extra_charge_on_statement",
+        "score": 0.9880228267882104,
+        "n_variants": 12,
+        "elapsed_seconds": 0.09244970000054309
+      },
+      {
+        "id": "test.csv:164",
+        "group_id": "54ce78d18655347cd617eb67f56b8980e34bbb9100b770d6d7b25fdf9583a8a8",
+        "true_label": "extra_charge_on_statement",
+        "target_label": "extra_charge_on_statement",
+        "score": 0.8282649585233116,
+        "n_variants": 11,
+        "elapsed_seconds": 0.08819549999952869
+      },
+      {
+        "id": "test.csv:2318",
+        "group_id": "2e0474a742914d7f047bc49e37bd4728490771c5f244a45ab043203d7ee0b086",
+        "true_label": "failed_transfer",
+        "target_label": "failed_transfer",
+        "score": 0.9612296563049103,
+        "n_variants": 14,
+        "elapsed_seconds": 0.11072669999975915
+      },
+      {
+        "id": "test.csv:2290",
+        "group_id": "e1b22f0e90412538376675d62473922ef127cdddd8bc9e1a371a32f09c582380",
+        "true_label": "failed_transfer",
+        "target_label": "failed_transfer",
+        "score": 0.6195417602850392,
+        "n_variants": 14,
+        "elapsed_seconds": 0.11148469999989175
+      },
+      {
+        "id": "test.csv:274",
+        "group_id": "4c3e37718a3c2b9fcebd8970bb132d88c1b51a8b9d9f5363b08049c0ab7b12b3",
+        "true_label": "fiat_currency_support",
+        "target_label": "fiat_currency_support",
+        "score": 0.9804522308521942,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05539969999972527
+      },
+      {
+        "id": "test.csv:255",
+        "group_id": "0c9bac906e23dab6310e395a01e0b13095f300534bd9068f50ef1db265e8e687",
+        "true_label": "fiat_currency_support",
+        "target_label": "exchange_via_app",
+        "score": 0.6212155943681551,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06637890000001789
+      },
+      {
+        "id": "test.csv:2610",
+        "group_id": "9e3fa2b7eeede34cfcc9a5dd219e3f7f5ccda3289b5753f833d7f5bdb98adc26",
+        "true_label": "get_disposable_virtual_card",
+        "target_label": "get_disposable_virtual_card",
+        "score": 0.9722275790311203,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07216069999958563
+      },
+      {
+        "id": "test.csv:2629",
+        "group_id": "365a0aab7707464376163a4b07ba9c9f498b025a883cbe45e2d2b1cf59f6707c",
+        "true_label": "get_disposable_virtual_card",
+        "target_label": "get_disposable_virtual_card",
+        "score": 0.980405007286074,
+        "n_variants": 12,
+        "elapsed_seconds": 0.10314870000001974
+      },
+      {
+        "id": "test.csv:1264",
+        "group_id": "488dba891ec7210f413823d0edaa22bb1cc2996931af3d2fe2d50f258fe55148",
+        "true_label": "get_physical_card",
+        "target_label": "get_physical_card",
+        "score": 0.9808662725833446,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07534119999945688
+      },
+      {
+        "id": "test.csv:1257",
+        "group_id": "34b24c53e944e1a8477a43f759a08dff273dba57579bdd932cb945d78b51f9e2",
+        "true_label": "get_physical_card",
+        "target_label": "get_physical_card",
+        "score": 0.9785702892040405,
+        "n_variants": 9,
+        "elapsed_seconds": 0.0648895000003904
+      },
+      {
+        "id": "test.csv:2435",
+        "group_id": "0d61c18fa7567c3ac52ec90f65cdff7eeb7dd1f131da36bdc2e49b07503a5b01",
+        "true_label": "getting_spare_card",
+        "target_label": "getting_spare_card",
+        "score": 0.9774367857754903,
+        "n_variants": 19,
+        "elapsed_seconds": 0.18657179999991058
+      },
+      {
+        "id": "test.csv:2414",
+        "group_id": "1182c311b4a7b5bb81c71ff5f9b20fb468284614607445531566ce55ce9bbc73",
+        "true_label": "getting_spare_card",
+        "target_label": "getting_spare_card",
+        "score": 0.9827753188980883,
+        "n_variants": 20,
+        "elapsed_seconds": 0.19475360000069486
+      },
+      {
+        "id": "test.csv:940",
+        "group_id": "bac3daa36b887f20e5cf2660ace71827e0164b39d9eede25cd7b0b06983405ef",
+        "true_label": "getting_virtual_card",
+        "target_label": "getting_virtual_card",
+        "score": 0.9845651644246357,
+        "n_variants": 8,
+        "elapsed_seconds": 0.057836300000417395
+      },
+      {
+        "id": "test.csv:923",
+        "group_id": "180f2d16ec806a5b4f68da420dbc98749b2558c32918e55ee2305a295ab1a0de",
+        "true_label": "getting_virtual_card",
+        "target_label": "getting_virtual_card",
+        "score": 0.9836558604065189,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07331270000031509
+      },
+      {
+        "id": "test.csv:454",
+        "group_id": "a2ee3981cadcf45ab752128fcebcd156c721f8d7004578ef35d15cb9b407a329",
+        "true_label": "lost_or_stolen_card",
+        "target_label": "compromised_card",
+        "score": 0.649597257304992,
+        "n_variants": 21,
+        "elapsed_seconds": 0.21535659999972268
+      },
+      {
+        "id": "test.csv:442",
+        "group_id": "2eb2118776c428847a82b83bd136412d1bc37451a0a3f239f957553a7eb18fc6",
+        "true_label": "lost_or_stolen_card",
+        "target_label": "lost_or_stolen_card",
+        "score": 0.9561056102230799,
+        "n_variants": 25,
+        "elapsed_seconds": 0.355959299999995
+      },
+      {
+        "id": "test.csv:1660",
+        "group_id": "cd39374753ab1fcfaa64a60cbada6c23a10754d97c6ff4e234a35d8ce66e0c4d",
+        "true_label": "lost_or_stolen_phone",
+        "target_label": "lost_or_stolen_phone",
+        "score": 0.9851164830259609,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10354019999977027
+      },
+      {
+        "id": "test.csv:1665",
+        "group_id": "077a86525b63c1e1a437220dacee4401bb359c499d8944d51b8d1d5b84aac70e",
+        "true_label": "lost_or_stolen_phone",
+        "target_label": "lost_or_stolen_phone",
+        "score": 0.981080366028502,
+        "n_variants": 24,
+        "elapsed_seconds": 0.30435209999996005
+      },
+      {
+        "id": "test.csv:2497",
+        "group_id": "a8c77a06c0b1017b9d12ceef4fe69ccfbe9aea1423e2fbb8acfe525ee665d82f",
+        "true_label": "order_physical_card",
+        "target_label": "order_physical_card",
+        "score": 0.9810350806184441,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07546069999989413
+      },
+      {
+        "id": "test.csv:2484",
+        "group_id": "085e6ffc695460786e822554f365b537d4c9b064671c748a5179aa41dcc6b153",
+        "true_label": "order_physical_card",
+        "target_label": "order_physical_card",
+        "score": 0.9802139218027627,
+        "n_variants": 5,
+        "elapsed_seconds": 0.036962200000743906
+      },
+      {
+        "id": "test.csv:1533",
+        "group_id": "9dee0bd622852fb89086748f98f000afd38a335d04cc8f0ed70b11a3511019b7",
+        "true_label": "passcode_forgotten",
+        "target_label": "passcode_forgotten",
+        "score": 0.9886309074759849,
+        "n_variants": 7,
+        "elapsed_seconds": 0.052068799999688054
+      },
+      {
+        "id": "test.csv:1556",
+        "group_id": "c7459159ec37d7d3c93e02ea5236bfdf0e4534a8366187d8860989c5037b79cd",
+        "true_label": "passcode_forgotten",
+        "target_label": "passcode_forgotten",
+        "score": 0.9863916385272752,
+        "n_variants": 6,
+        "elapsed_seconds": 0.04786140000032901
+      },
+      {
+        "id": "test.csv:1620",
+        "group_id": "73fec0bb7b3084fd1db743d30e7e472583115b3654fd1e686449d7fe083de0ca",
+        "true_label": "pending_card_payment",
+        "target_label": "pending_card_payment",
+        "score": 0.9791749898290915,
+        "n_variants": 12,
+        "elapsed_seconds": 0.0936052999995809
+      },
+      {
+        "id": "test.csv:1613",
+        "group_id": "049f38ee330b1459508677043dead072986fe9bbc592dd780d754118d7dbd73d",
+        "true_label": "pending_card_payment",
+        "target_label": "pending_card_payment",
+        "score": 0.9667208891886634,
+        "n_variants": 13,
+        "elapsed_seconds": 0.09026300000004994
+      },
+      {
+        "id": "test.csv:231",
+        "group_id": "f5668db6c19d30264df94fc07952ea4db56d4e1541f4e9158761a00e1174a50c",
+        "true_label": "pending_cash_withdrawal",
+        "target_label": "pending_cash_withdrawal",
+        "score": 0.9859416206426743,
+        "n_variants": 28,
+        "elapsed_seconds": 0.4142343000003166
+      },
+      {
+        "id": "test.csv:225",
+        "group_id": "6797abfab19a519fbf5ed690d33bc1971288369d23e350e35249c0be2a7f5245",
+        "true_label": "pending_cash_withdrawal",
+        "target_label": "pending_cash_withdrawal",
+        "score": 0.9876754465651707,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10657979999996314
+      },
+      {
+        "id": "test.csv:669",
+        "group_id": "92793228f573599c1cbe29654c79aefefaf5c4af58fb93f71dd71d7d86f7ca09",
+        "true_label": "pending_top_up",
+        "target_label": "pending_top_up",
+        "score": 0.9837845042221403,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10110509999958595
+      },
+      {
+        "id": "test.csv:649",
+        "group_id": "248a34d86bf5bbf36d6f9249049f5773845be96ede77d7c2e92ebd6b4068706f",
+        "true_label": "pending_top_up",
+        "target_label": "pending_top_up",
+        "score": 0.8682913273599077,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06921880000027159
+      },
+      {
+        "id": "test.csv:1856",
+        "group_id": "d9d62549d7e02bc6de4a0c53773a8fd4357c5f151a26bde69eab3fc6259c1a5c",
+        "true_label": "pending_transfer",
+        "target_label": "pending_transfer",
+        "score": 0.9843261870426995,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06239420000019891
+      },
+      {
+        "id": "test.csv:1848",
+        "group_id": "f7a3ef03049688c81f5c27553a40f93cad429c72a818fc82265f5e8911f53852",
+        "true_label": "pending_transfer",
+        "target_label": "pending_transfer",
+        "score": 0.9848371945321187,
+        "n_variants": 10,
+        "elapsed_seconds": 0.06843469999967056
+      },
+      {
+        "id": "test.csv:535",
+        "group_id": "e776357d5edf5095b4624a14bf3ba4bed21ad1249a6cf67a96bc8d64eb334d4d",
+        "true_label": "pin_blocked",
+        "target_label": "pin_blocked",
+        "score": 0.9840967923911756,
+        "n_variants": 16,
+        "elapsed_seconds": 0.1389911000005668
+      },
+      {
+        "id": "test.csv:555",
+        "group_id": "998e06fe0edfeccab62206083c6005f53adb104abe5b55b7f1cba016566c5357",
+        "true_label": "pin_blocked",
+        "target_label": "card_not_working",
+        "score": 0.6922119063017,
+        "n_variants": 8,
+        "elapsed_seconds": 0.0659669999995458
+      },
+      {
+        "id": "test.csv:2274",
+        "group_id": "eb419b9bb751999d44ec1513164ff9a4a5d6e7fbd2eb4f75117eea9031eed583",
+        "true_label": "receiving_money",
+        "target_label": "receiving_money",
+        "score": 0.9817653453835083,
+        "n_variants": 12,
+        "elapsed_seconds": 0.10126909999962663
+      },
+      {
+        "id": "test.csv:2256",
+        "group_id": "8b4cac50b47bea562379e4a43895cdfffbda073f46fca91810bacc958e4b14f6",
+        "true_label": "receiving_money",
+        "target_label": "receiving_money",
+        "score": 0.5154874800817858,
+        "n_variants": 11,
+        "elapsed_seconds": 0.08141359999990527
+      },
+      {
+        "id": "test.csv:1717",
+        "group_id": "7708f18385c67ac9382e782c0a33bef79284818d18ff41dcb5ea44c860fd909b",
+        "true_label": "request_refund",
+        "target_label": "request_refund",
+        "score": 0.9841350938584033,
+        "n_variants": 11,
+        "elapsed_seconds": 0.08039590000043972
+      },
+      {
+        "id": "test.csv:1707",
+        "group_id": "a852682b16e48b60cfde3fec22b4c4661eec58fe8b0899a2b9249eb7face9bd8",
+        "true_label": "request_refund",
+        "target_label": "request_refund",
+        "score": 0.9892826865166278,
+        "n_variants": 17,
+        "elapsed_seconds": 0.1402722000002541
+      },
+      {
+        "id": "test.csv:2117",
+        "group_id": "05686cfbad42aac8295b31d880b7aacd499ff3c2508b081a01f3467791ff1343",
+        "true_label": "reverted_card_payment?",
+        "target_label": "reverted_card_payment?",
+        "score": 0.9781788812591213,
+        "n_variants": 5,
+        "elapsed_seconds": 0.035464999999931024
+      },
+      {
+        "id": "test.csv:2105",
+        "group_id": "7badc3e73d48f68a81723cbbd52cf8cf03dd0fe3f2ba53bbb807feefcc6dfd32",
+        "true_label": "reverted_card_payment?",
+        "target_label": "reverted_card_payment?",
+        "score": 0.36184592617703626,
+        "n_variants": 12,
+        "elapsed_seconds": 0.09122980000029202
+      },
+      {
+        "id": "test.csv:903",
+        "group_id": "3cebd10cf905b160aec131bc549449d7ccd12c4fa1a2106aca5cd6cf2fb9e220",
+        "true_label": "supported_cards_and_currencies",
+        "target_label": "supported_cards_and_currencies",
+        "score": 0.9106675443476849,
+        "n_variants": 17,
+        "elapsed_seconds": 0.16947220000020025
+      },
+      {
+        "id": "test.csv:894",
+        "group_id": "7f7a2d5fccea80f804528e2b3efff301ebf1dc768257ed9d67145abb96c29d57",
+        "true_label": "supported_cards_and_currencies",
+        "target_label": "supported_cards_and_currencies",
+        "score": 0.9836928300636854,
+        "n_variants": 14,
+        "elapsed_seconds": 0.10764389999985724
+      },
+      {
+        "id": "test.csv:1888",
+        "group_id": "ca35d007d5706b0f423dc117c46b349ac480a0cbb3aba715133e9342c1eeb9fc",
+        "true_label": "terminate_account",
+        "target_label": "terminate_account",
+        "score": 0.9876905939784778,
+        "n_variants": 8,
+        "elapsed_seconds": 0.06058559999928548
+      },
+      {
+        "id": "test.csv:1912",
+        "group_id": "84d03462ded30bd2cde50f704ceaa5144c6845fe527944df15b97f61333d275d",
+        "true_label": "terminate_account",
+        "target_label": "terminate_account",
+        "score": 0.9873267550499071,
+        "n_variants": 9,
+        "elapsed_seconds": 0.0667396999997436
+      },
+      {
+        "id": "test.csv:631",
+        "group_id": "52d06293402652d1770ed493126809341f3a18b3b43ce11acfe9283fe817ab51",
+        "true_label": "top_up_by_bank_transfer_charge",
+        "target_label": "top_up_by_bank_transfer_charge",
+        "score": 0.9659541576411166,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06548029999976279
+      },
+      {
+        "id": "test.csv:605",
+        "group_id": "93d1f88c768d17a7a720aa290f107b741d204d99c8d19a55bb30e9b4e2cc36c9",
+        "true_label": "top_up_by_bank_transfer_charge",
+        "target_label": "top_up_by_bank_transfer_charge",
+        "score": 0.9781276920831341,
+        "n_variants": 5,
+        "elapsed_seconds": 0.039589799999703246
+      },
+      {
+        "id": "test.csv:2803",
+        "group_id": "051a628a28b3ca929a08d88986d3d1db741bc8a7e16e9e8b4cd3c3879e932e96",
+        "true_label": "top_up_by_card_charge",
+        "target_label": "top_up_by_card_charge",
+        "score": 0.9555310320032382,
+        "n_variants": 13,
+        "elapsed_seconds": 0.09802320000017062
+      },
+      {
+        "id": "test.csv:2807",
+        "group_id": "3bdd4fa7624aa7e330fc399b44df67d3b55871696b9826f561b531a7d88d5991",
+        "true_label": "top_up_by_card_charge",
+        "target_label": "top_up_by_card_charge",
+        "score": 0.9821638883776539,
+        "n_variants": 11,
+        "elapsed_seconds": 0.07629120000001421
+      },
+      {
+        "id": "test.csv:2449",
+        "group_id": "a31455806b38fdeafe818c0643caa696b531d7d63f480d33175b6f6625719d61",
+        "true_label": "top_up_by_cash_or_cheque",
+        "target_label": "top_up_by_cash_or_cheque",
+        "score": 0.9671584976031894,
+        "n_variants": 15,
+        "elapsed_seconds": 0.13013890000001993
+      },
+      {
+        "id": "test.csv:2450",
+        "group_id": "b85f3d0da97efe8c0ca502904841c20b1bf985307488c9c1f54990ff468a2c71",
+        "true_label": "top_up_by_cash_or_cheque",
+        "target_label": "top_up_by_cash_or_cheque",
+        "score": 0.9824624129046047,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06194549999963783
+      },
+      {
+        "id": "test.csv:2667",
+        "group_id": "05fa32f3538e1d692d7e5532638e3e7e77f0551f96d1c9de0db6a15d04e0c0b9",
+        "true_label": "top_up_failed",
+        "target_label": "top_up_failed",
+        "score": 0.9667936439834927,
+        "n_variants": 10,
+        "elapsed_seconds": 0.0725283000001582
+      },
+      {
+        "id": "test.csv:2678",
+        "group_id": "1d9fbc415e77af3cc3f1b9e89ae74d6ea78d424a91eab7086c26b995221593aa",
+        "true_label": "top_up_failed",
+        "target_label": "top_up_failed",
+        "score": 0.9826482700018873,
+        "n_variants": 6,
+        "elapsed_seconds": 0.04365940000025148
+      },
+      {
+        "id": "test.csv:724",
+        "group_id": "829f6fbbc2a84993d7ec74d26f5aa7af66f20215babdffb98885cbde2c883fea",
+        "true_label": "top_up_limits",
+        "target_label": "top_up_limits",
+        "score": 0.9398561605839503,
+        "n_variants": 8,
+        "elapsed_seconds": 0.060262300000431424
+      },
+      {
+        "id": "test.csv:744",
+        "group_id": "bd372b0d632dfe2c557403d8efa9aab07474e552fbc7cd52724e5b8af7a32610",
+        "true_label": "top_up_limits",
+        "target_label": "top_up_limits",
+        "score": 0.9813577534003631,
+        "n_variants": 7,
+        "elapsed_seconds": 0.05124419999992824
+      },
+      {
+        "id": "test.csv:1024",
+        "group_id": "ec2a39c032e28b716baabe9537a3fc61b7c65d8c5ae4f1a02f58841f40478be6",
+        "true_label": "top_up_reverted",
+        "target_label": "top_up_reverted",
+        "score": 0.977335646010663,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07472819999929925
+      },
+      {
+        "id": "test.csv:1038",
+        "group_id": "671c32cf89470e85d0c0f3645d579339dce713bc95fb47fbdefd880e0c2cf46d",
+        "true_label": "top_up_reverted",
+        "target_label": "top_up_failed",
+        "score": 0.9440798012066935,
+        "n_variants": 14,
+        "elapsed_seconds": 0.11911929999951099
+      },
+      {
+        "id": "test.csv:1349",
+        "group_id": "d36c249bbd4285a29f20ac5720345b9b997b056a442ced9f84e52b97fc8bf210",
+        "true_label": "topping_up_by_card",
+        "target_label": "topping_up_by_card",
+        "score": 0.9799956141422661,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06635999999980413
+      },
+      {
+        "id": "test.csv:1353",
+        "group_id": "ebf82902b374776e88a33ae6b7fd5978e59c857c999905053d09ec9bfec3ff89",
+        "true_label": "topping_up_by_card",
+        "target_label": "topping_up_by_card",
+        "score": 0.9818847552038414,
+        "n_variants": 9,
+        "elapsed_seconds": 0.06912809999994352
+      },
+      {
+        "id": "test.csv:1976",
+        "group_id": "760caf69fab01bb32e021b094e614a003bfad892561c118921977e56db6a0c07",
+        "true_label": "transaction_charged_twice",
+        "target_label": "transaction_charged_twice",
+        "score": 0.9872422135956336,
+        "n_variants": 10,
+        "elapsed_seconds": 0.07647450000058598
+      },
+      {
+        "id": "test.csv:1995",
+        "group_id": "6d0dda281a87b6b54352ff07edd4a0dfeb15fe0afdf3078cb7533dff1510abdb",
+        "true_label": "transaction_charged_twice",
+        "target_label": "transaction_charged_twice",
+        "score": 0.9891743950258177,
+        "n_variants": 30,
+        "elapsed_seconds": 0.3989944999993895
+      },
+      {
+        "id": "test.csv:2200",
+        "group_id": "83d2a719691ada71f7c61eb395cad08f21de001309ffe1ca3353298117d919f3",
+        "true_label": "transfer_fee_charged",
+        "target_label": "transfer_fee_charged",
+        "score": 0.9873482250851302,
+        "n_variants": 11,
+        "elapsed_seconds": 0.09095989999968879
+      },
+      {
+        "id": "test.csv:2207",
+        "group_id": "0e41007a157978ee69d9642045219c628df6ded6ca056ab88337c78fc7396e5b",
+        "true_label": "transfer_fee_charged",
+        "target_label": "transfer_fee_charged",
+        "score": 0.9782361276416027,
+        "n_variants": 7,
+        "elapsed_seconds": 0.04848859999947308
+      },
+      {
+        "id": "test.csv:2354",
+        "group_id": "271c082296ca45a06b92b5bf731264c172c7ccf6c2ee65b7deafd549962b9688",
+        "true_label": "transfer_into_account",
+        "target_label": "transfer_into_account",
+        "score": 0.4464463180606784,
+        "n_variants": 22,
+        "elapsed_seconds": 0.23322420000022248
+      },
+      {
+        "id": "test.csv:2337",
+        "group_id": "667b5ad17c84f679522c846cef4aceaa8caaadd021dceea823f63bd903636128",
+        "true_label": "transfer_into_account",
+        "target_label": "transfer_into_account",
+        "score": 0.9632475535036644,
+        "n_variants": 10,
+        "elapsed_seconds": 0.08744869999918592
+      },
+      {
+        "id": "test.csv:861",
+        "group_id": "cec7626c57b3c3ffd8360c75a941e63210d8027df67925063c0863567d3a800f",
+        "true_label": "transfer_not_received_by_recipient",
+        "target_label": "transfer_not_received_by_recipient",
+        "score": 0.9728959444728718,
+        "n_variants": 36,
+        "elapsed_seconds": 0.752673799999684
+      },
+      {
+        "id": "test.csv:847",
+        "group_id": "1a5862475439ac70d0972edad61762a5196fc9b82ada20a07b1017ba05bc7659",
+        "true_label": "transfer_not_received_by_recipient",
+        "target_label": "transfer_not_received_by_recipient",
+        "score": 0.9834354847721288,
+        "n_variants": 16,
+        "elapsed_seconds": 0.1377546000003349
+      },
+      {
+        "id": "test.csv:2058",
+        "group_id": "24376014a9b523e0bb951cfeacbe71d5cfe29e33a325e39aa026f98642486807",
+        "true_label": "transfer_timing",
+        "target_label": "transfer_timing",
+        "score": 0.9640601557235878,
+        "n_variants": 8,
+        "elapsed_seconds": 0.05846179999934975
+      },
+      {
+        "id": "test.csv:2067",
+        "group_id": "94713b50ce4a3441ebaf0b6fd12f37c35bfd8b87ffafa9375a72ad901fe0a09c",
+        "true_label": "transfer_timing",
+        "target_label": "transfer_timing",
+        "score": 0.941273172182993,
+        "n_variants": 13,
+        "elapsed_seconds": 0.10131679999994958
+      },
+      {
+        "id": "test.csv:1210",
+        "group_id": "087955a38fc07bf566543fb1feb03b376a20e058973664e3c80d8c038b0d782a",
+        "true_label": "unable_to_verify_identity",
+        "target_label": "unable_to_verify_identity",
+        "score": 0.9703827237542323,
+        "n_variants": 8,
+        "elapsed_seconds": 0.057001900000614114
+      },
+      {
+        "id": "test.csv:1229",
+        "group_id": "a8152eb6706f5ec27b3f8e10e1591722cfc8019c6316a3693d1e118f050996af",
+        "true_label": "unable_to_verify_identity",
+        "target_label": "unable_to_verify_identity",
+        "score": 0.9633865342558771,
+        "n_variants": 8,
+        "elapsed_seconds": 0.05408939999961149
+      },
+      {
+        "id": "test.csv:3000",
+        "group_id": "dcb91860cf768a369f4bc41ae6f783d52455774803b7a745c5366aa2bd29c69b",
+        "true_label": "verify_my_identity",
+        "target_label": "verify_my_identity",
+        "score": 0.9212095893072005,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07530170000063663
+      },
+      {
+        "id": "test.csv:3016",
+        "group_id": "616a54d402f723edbfa66ab0c19c91a4a20c27c266f092ca4fe12580229a7fd6",
+        "true_label": "verify_my_identity",
+        "target_label": "verify_my_identity",
+        "score": 0.9721049264235463,
+        "n_variants": 12,
+        "elapsed_seconds": 0.11661050000020623
+      },
+      {
+        "id": "test.csv:2032",
+        "group_id": "9201472b04dcc7a9107d08fed9982766029fadb56bbeb903b0732fa29331fe02",
+        "true_label": "verify_source_of_funds",
+        "target_label": "verify_source_of_funds",
+        "score": 0.9859733048965653,
+        "n_variants": 10,
+        "elapsed_seconds": 0.09535890000006475
+      },
+      {
+        "id": "test.csv:2011",
+        "group_id": "ce180b1a582b09b649acab09ee151ee6c0b596a17e8a0f67809bbb1b365d7462",
+        "true_label": "verify_source_of_funds",
+        "target_label": "verify_source_of_funds",
+        "score": 0.9865928627830745,
+        "n_variants": 9,
+        "elapsed_seconds": 0.08674009999958798
+      },
+      {
+        "id": "test.csv:2392",
+        "group_id": "c96ffdc5323675a808e62f35554ee9225d80414757c60daa09b8d02b1d5e72c2",
+        "true_label": "verify_top_up",
+        "target_label": "verify_top_up",
+        "score": 0.9859657462653899,
+        "n_variants": 15,
+        "elapsed_seconds": 0.16258440000001428
+      },
+      {
+        "id": "test.csv:2366",
+        "group_id": "3fbbb1abd7e5efbce2b7f55d0c4dae9fd17266776be1e1101d8660ceba3705b9",
+        "true_label": "verify_top_up",
+        "target_label": "verify_top_up",
+        "score": 0.9839046955207681,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07906170000023849
+      },
+      {
+        "id": "test.csv:2539",
+        "group_id": "f8615822bce59bec7bcec174321596692684de67f5377d7da78cb16309a03a36",
+        "true_label": "virtual_card_not_working",
+        "target_label": "virtual_card_not_working",
+        "score": 0.9450548162412467,
+        "n_variants": 13,
+        "elapsed_seconds": 0.13858330000039132
+      },
+      {
+        "id": "test.csv:2552",
+        "group_id": "39fc79aaa9dadf6deff5cd757980486c6618cc13fb32e095325f0b67e112e9ac",
+        "true_label": "virtual_card_not_working",
+        "target_label": "virtual_card_not_working",
+        "score": 0.9265273468798729,
+        "n_variants": 9,
+        "elapsed_seconds": 0.10193880000042554
+      },
+      {
+        "id": "test.csv:1318",
+        "group_id": "f342f22d6bbbd2ffd0e1963b455a98afa823bc24d160f514fe8d9689c8daf1cf",
+        "true_label": "visa_or_mastercard",
+        "target_label": "visa_or_mastercard",
+        "score": 0.9899017264152101,
+        "n_variants": 7,
+        "elapsed_seconds": 0.06721019999986311
+      },
+      {
+        "id": "test.csv:1292",
+        "group_id": "610aeb7755a71635d0cfa8ddf2c5e7ce5f873ad89f8a771da6d96801060cb72c",
+        "true_label": "visa_or_mastercard",
+        "target_label": "visa_or_mastercard",
+        "score": 0.9883362521080111,
+        "n_variants": 10,
+        "elapsed_seconds": 0.09233709999989514
+      },
+      {
+        "id": "test.csv:1169",
+        "group_id": "90fdc137965175858ee1cd4a62733ecc2a7122f6490adbbaf9963d92d3502483",
+        "true_label": "why_verify_identity",
+        "target_label": "why_verify_identity",
+        "score": 0.7356644633660604,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07924419999926613
+      },
+      {
+        "id": "test.csv:1183",
+        "group_id": "a531d67a3e29369df2ae15311942faa48808bd80fb992c050732e1d7558a88cc",
+        "true_label": "why_verify_identity",
+        "target_label": "verify_my_identity",
+        "score": 0.9066758227501127,
+        "n_variants": 9,
+        "elapsed_seconds": 0.07835500000055617
+      },
+      {
+        "id": "test.csv:770",
+        "group_id": "69e6cec67f6083eb08981cd4edec04ba7f3e251176813e68e6b416ed95891296",
+        "true_label": "wrong_amount_of_cash_received",
+        "target_label": "wrong_amount_of_cash_received",
+        "score": 0.9788370472335471,
+        "n_variants": 30,
+        "elapsed_seconds": 0.5642910999995365
+      },
+      {
+        "id": "test.csv:794",
+        "group_id": "f2dbddbfbf90df983540a217db45dad3bf8821727f51f0418c571e51e5795311",
+        "true_label": "wrong_amount_of_cash_received",
+        "target_label": "wrong_amount_of_cash_received",
+        "score": 0.9848962671031363,
+        "n_variants": 11,
+        "elapsed_seconds": 0.10420000000067375
+      },
+      {
+        "id": "test.csv:2593",
+        "group_id": "b1e4755c3620cc9646d519ccec1f4629718d4066500b15555f697b78517c8761",
+        "true_label": "wrong_exchange_rate_for_cash_withdrawal",
+        "target_label": "wrong_exchange_rate_for_cash_withdrawal",
+        "score": 0.9871595392077108,
+        "n_variants": 11,
+        "elapsed_seconds": 0.11664230000042153
+      },
+      {
+        "id": "test.csv:2560",
+        "group_id": "4bcfd83aab588391869cc69cabcb001fe13f27590463d0ea0a79a5635a030eb8",
+        "true_label": "wrong_exchange_rate_for_cash_withdrawal",
+        "target_label": "wrong_exchange_rate_for_cash_withdrawal",
+        "score": 0.9469652129202896,
+        "n_variants": 17,
+        "elapsed_seconds": 0.19454900000073394
+      }
+    ],
+    "interpretation": "Mean absolute original-predicted-class score change by word occurrence. Two messages per true class; not natural production frequencies. Signed means and occurrence counts retained."
+  },
+  "cost": {
+    "model_load_seconds": 8.610048099999403,
+    "predict_test_seconds": 54.46212319999995,
+    "local_elapsed_seconds": 0.48809410000012576,
+    "global_elapsed_seconds": 18.39508459999979,
+    "total_elapsed_seconds": 88.77891510000063,
+    "global_mean_explanation_seconds": 0.11944860129869994,
+    "local_mean_explanation_seconds": 0.09761882000002516,
+    "device": "cpu",
+    "threads": 2,
+    "measurement_scope": "Wall-clock explanations with batched variants and a warm shared model. Model load, full-test predictions and rendering are separate."
+  }
+}
